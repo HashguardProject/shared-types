@@ -86,7 +86,6 @@ export enum SessionStatus {
   BLOCKED = 'BLOCKED',
 }
 
-
 export enum VerificationStatus {
   NONE = 'NONE',
   PENDING = 'PENDING',
@@ -95,7 +94,6 @@ export enum VerificationStatus {
   BLOCKED = 'BLOCKED',
   EXPIRED = 'EXPIRED',
 }
-
 
 /**
  * Represents verification attempts and status for a session
@@ -160,7 +158,7 @@ export interface Session {
   /** Reason for revocation */
   revokedReason?: string;
   /** Geographic location */
-  location?: GeoLocation; 
+  location?: GeoLocation;
   /** Session verification details */
   verification: SessionVerification;
   /** Creation timestamp */

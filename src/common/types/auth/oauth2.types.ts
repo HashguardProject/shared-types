@@ -16,4 +16,4 @@ export interface OAuth2Error {
   error_description: string;
   error_uri?: string;
   state?: string;
-} 
+}

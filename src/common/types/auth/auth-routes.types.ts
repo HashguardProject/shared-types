@@ -4,7 +4,6 @@ import { User } from '../objects/user.types';
 import { Session, SessionStatus } from '../objects/session.types';
 import { RiskSeverity, SecurityFlag } from '../security/security.types';
 
-
 export enum VerificationMethod {
   EMAIL = 'EMAIL',
   SMS = 'SMS',
@@ -102,8 +101,8 @@ export interface SessionInfo {
  */
 export interface RequiredHeaders {
   'x-csrf-token'?: string;
-  'Authorization'?: string;
+  Authorization?: string;
   'x-request-id'?: string;
   'x-device-type'?: string;
   'x-fingerprint'?: string;
-} 
+}
