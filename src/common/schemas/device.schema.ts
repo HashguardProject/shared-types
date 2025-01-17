@@ -1,12 +1,8 @@
 import { z } from 'zod';
-import { DeviceType, OperatingSystem } from '../types/device.types';
+import { DeviceType } from '../types/device.types';
+import { ScreenSchema } from './fingerprint.schema';
 
-export const ScreenSchema = z.object({
-  width: z.number().int().positive(),
-  height: z.number().int().positive(),
-  ratio: z.number().positive(),
-  colorDepth: z.number().int().positive(),
-});
+
 
 export const OperatingSystemSchema = z.object({
   name: z.string().min(1),
@@ -21,7 +17,7 @@ export const DeviceHardwareSchema = z.object({
   cores: z.number().int().positive(),
 });
 
-export const BrowserSchema = z.object({
+export const DeviceBrowserSchema = z.object({
   name: z.string().min(1),
   version: z.string().min(1),
   engine: z.string().min(1),
@@ -29,7 +25,7 @@ export const BrowserSchema = z.object({
 });
 
 export const DeviceSoftwareSchema = z.object({
-  browser: BrowserSchema,
+  browser: DeviceBrowserSchema,
   timezone: z.string().min(1),
 });
 
@@ -47,4 +43,4 @@ export const DeviceInfoSchema = z.object({
   network: DeviceNetworkSchema,
 });
 
-export type DeviceInfoSchemaType = z.infer<typeof DeviceInfoSchema>; 
+export type DeviceInfoSchemaType = z.infer<typeof DeviceInfoSchema>;

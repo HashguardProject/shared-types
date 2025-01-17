@@ -10,7 +10,8 @@ export const SecurityContextSchema = z.object({
   flags: z.array(SecurityFlagSchema),
   requiresVerification: z.boolean(),
   lastVerification: z.date().optional(),
-  trustScore: z.number()
+  trustScore: z
+    .number()
     .min(0)
     .max(1)
     .transform(v => Number(v.toFixed(4))), // Ensure consistent precision
@@ -34,4 +35,4 @@ export const RISK_SEVERITY_RANGES = {
   [RiskSeverity.MEDIUM]: { min: 0.5, max: 0.74 },
   [RiskSeverity.HIGH]: { min: 0.25, max: 0.49 },
   [RiskSeverity.CRITICAL]: { min: 0, max: 0.24 },
-} as const; 
+} as const;

@@ -5,6 +5,7 @@ export const ScreenSchema = z.object({
   width: z.number().int().positive(),
   height: z.number().int().positive(),
   ratio: z.number().positive(),
+  colorDepth: z.number().int().positive(),
 });
 
 export const HardwareSchema = z.object({
@@ -36,4 +37,4 @@ export const FingerprintSchema = z.object({
   confidence: z.number().min(0).max(1),
 });
 
-export type FingerprintSchemaType = z.infer<typeof FingerprintSchema>; 
+export type FingerprintSchemaType = z.infer<typeof FingerprintSchema>;

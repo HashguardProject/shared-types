@@ -1,6 +1,6 @@
 // fingerprint.types.ts
-import { RiskSeverity } from "./security/security.types";
-import { OperatingSystem } from "./device.types";
+import { RiskSeverity } from './security/security.types';
+import { OperatingSystem } from './device.types';
 
 /**
  * Core fingerprint components

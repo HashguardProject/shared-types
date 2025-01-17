@@ -1,5 +1,5 @@
-import { DeviceType } from "../device.types";
-import { StorageQuota, StorageUsage } from "../filesystem/storage.types";
+import { DeviceType } from '../device.types';
+import { StorageQuota, StorageUsage } from '../filesystem/storage.types';
 
 // user.types.ts
 export interface User {
@@ -8,7 +8,7 @@ export interface User {
   isEmailVerified: boolean;
   createdAt: Date;
   updatedAt: Date;
-  
+
   lastLogin?: Date;
   securityOverview?: UserSecurityOverview;
   preferences?: UserPreferences;

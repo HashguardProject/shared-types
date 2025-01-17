@@ -1,13 +1,13 @@
-import { 
-  SessionMetadata, 
-  SessionSecurityContext, 
+import {
+  SessionMetadata,
+  SessionSecurityContext,
   DeviceTrustLevel,
-  BrowserInfo 
+  BrowserInfo,
 } from '../session.types';
-import { 
-  SessionMetadataSchema, 
+import {
+  SessionMetadataSchema,
   SessionSecurityContextSchema,
-  BrowserInfoSchema 
+  BrowserInfoSchema,
 } from '../../schemas/session.schema';
 
 /**
@@ -58,4 +58,4 @@ export const parseSessionMetadata = (value: unknown): SessionMetadata | null => 
 export const parseSessionSecurityContext = (value: unknown): SessionSecurityContext | null => {
   const result = SessionSecurityContextSchema.safeParse(value);
   return result.success ? result.data : null;
-}; 
+};

@@ -5,7 +5,7 @@ import {
   isDeviceHardwareInfo,
   isDeviceSoftwareInfo,
   isDeviceNetworkInfo,
-  parseDeviceInfo
+  parseDeviceInfo,
 } from '../guards/device.guards';
 import { DeviceType, OperatingSystem } from '../device.types';
 
@@ -88,4 +88,4 @@ describe('Device Types', () => {
       expect(parseDeviceInfo(invalidDeviceInfo)).toBeNull();
     });
   });
-}); 
+});

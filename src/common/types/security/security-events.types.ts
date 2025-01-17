@@ -1,4 +1,4 @@
-import { RiskSeverity } from "./security.types";
+import { RiskSeverity } from './security.types';
 
 // security-events.types.ts
 export interface SecurityEvent {

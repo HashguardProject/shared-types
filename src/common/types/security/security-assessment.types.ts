@@ -1,4 +1,4 @@
-import { SecurityFlag, RiskSeverity } from "./security.types";
+import { SecurityFlag, RiskSeverity } from './security.types';
 
 /**
  * Complete security assessment result

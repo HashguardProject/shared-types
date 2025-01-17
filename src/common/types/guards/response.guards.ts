@@ -1,4 +1,4 @@
-import { 
+import {
   ApiResponse,
   ApiResponseMeta,
   PaginationMeta,
@@ -6,7 +6,7 @@ import {
   ApiLinks,
   ErrorResponse,
   SecurityResponse,
-  AuthenticationResponse
+  AuthenticationResponse,
 } from '../response.types';
 import {
   ApiResponseSchema,
@@ -16,7 +16,7 @@ import {
   ApiLinksSchema,
   ErrorResponseSchema,
   SecurityResponseSchema,
-  AuthenticationResponseSchema
+  AuthenticationResponseSchema,
 } from '../../schemas/response.schema';
 import { z } from 'zod';
 
@@ -66,8 +66,8 @@ export const isErrorResponse = (value: unknown): value is ErrorResponse => {
  * @param dataSchema - Schema for the response data
  */
 export const isSecurityResponse = <T>(
-  value: unknown, 
-  dataSchema: z.ZodType<T>
+  value: unknown,
+  dataSchema: z.ZodType<T>,
 ): value is SecurityResponse<T> => {
   return SecurityResponseSchema(dataSchema).safeParse(value).success;
 };
@@ -86,8 +86,8 @@ export const isAuthenticationResponse = (value: unknown): value is Authenticatio
  * @param dataSchema - Schema for the response data
  */
 export const isApiResponse = <T>(
-  value: unknown, 
-  dataSchema: z.ZodType<T>
+  value: unknown,
+  dataSchema: z.ZodType<T>,
 ): value is ApiResponse<T> => {
   return ApiResponseSchema(dataSchema).safeParse(value).success;
 };
@@ -98,11 +98,11 @@ export const isApiResponse = <T>(
  * @param dataSchema - Schema for the response data
  */
 export const parseApiResponse = <T>(
-  value: unknown, 
-  dataSchema: z.ZodType<T>
+  value: unknown,
+  dataSchema: z.ZodType<T>,
 ): ApiResponse<T> | null => {
   const result = ApiResponseSchema(dataSchema).safeParse(value);
-  return result.success ? result.data as ApiResponse<T> : null;
+  return result.success ? (result.data as ApiResponse<T>) : null;
 };
 
 /**
@@ -111,9 +111,9 @@ export const parseApiResponse = <T>(
  * @param dataSchema - Schema for the response data
  */
 export const parseSecurityResponse = <T>(
-  value: unknown, 
-  dataSchema: z.ZodType<T>
+  value: unknown,
+  dataSchema: z.ZodType<T>,
 ): SecurityResponse<T> | null => {
   const result = SecurityResponseSchema(dataSchema).safeParse(value);
-  return result.success ? result.data as SecurityResponse<T> : null;
-}; 
+  return result.success ? (result.data as SecurityResponse<T>) : null;
+};

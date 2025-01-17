@@ -1,9 +1,6 @@
 import { z } from 'zod';
-import type {
-  Fingerprint,
-  ValidationResult
-} from '../index';
-import { FingerprintSchema, type FingerprintSchemaType } from '../../schemas/fingerprint.schema';
+import type { Fingerprint, ValidationResult } from '../index';
+import { FingerprintSchema } from '../../schemas/fingerprint.schema';
 import { RiskSeverity } from '../security/security.types';
 import { DeviceType } from '../device.types';
 import { SecurityEvent } from '../security/security-events.types';
@@ -44,7 +41,7 @@ export const isSecurityEvent = (value: unknown): value is SecurityEvent => {
     severity: z.nativeEnum(RiskSeverity),
     details: z.record(z.unknown()),
   });
-  
+
   return SecurityEventSchema.safeParse(value).success;
 };
 
@@ -99,4 +96,4 @@ export function assertValidationResult(value: unknown): asserts value is Validat
   if (!isValidationResult(value)) {
     throw new Error('Value is not a valid ValidationResult');
   }
-} 
+}

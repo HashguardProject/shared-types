@@ -5,17 +5,17 @@
  */
 export enum OperatingSystem {
   /** Microsoft Windows */
-  WINDOWS = "windows",
+  WINDOWS = 'windows',
   /** Apple macOS */
-  MACOS = "macos",
+  MACOS = 'macos',
   /** Linux-based OS */
-  LINUX = "linux",
+  LINUX = 'linux',
   /** Apple iOS */
-  IOS = "ios",
+  IOS = 'ios',
   /** Google Android */
-  ANDROID = "android",
+  ANDROID = 'android',
   /** Unidentified OS */
-  UNKNOWN = "unknown",
+  UNKNOWN = 'unknown',
 }
 
 /**
@@ -24,13 +24,13 @@ export enum OperatingSystem {
  */
 export enum DeviceType {
   /** Desktop computer or laptop */
-  DESKTOP = "desktop",
+  DESKTOP = 'desktop',
   /** Mobile phone */
-  MOBILE = "mobile",
+  MOBILE = 'mobile',
   /** Tablet device */
-  TABLET = "tablet",
+  TABLET = 'tablet',
   /** Unidentified device type */
-  UNKNOWN = "unknown",
+  UNKNOWN = 'unknown',
 }
 
 /**

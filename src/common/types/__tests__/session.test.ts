@@ -1,9 +1,9 @@
-import { 
-  isSessionMetadata, 
+import {
+  isSessionMetadata,
   isSessionSecurityContext,
   isDeviceTrustLevel,
   parseSessionMetadata,
-  parseSessionSecurityContext 
+  parseSessionSecurityContext,
 } from '../guards/session.guards';
 import { DeviceTrustLevel } from '../session.types';
 
@@ -13,17 +13,15 @@ describe('Session Types', () => {
       const validMetadata = {
         ip: '192.168.1.1',
         platform: 'Windows',
-        browser: [
-          { brand: 'Chrome', version: '96.0.4664.110' }
-        ],
+        browser: [{ brand: 'Chrome', version: '96.0.4664.110' }],
         location: {
           country: 'US',
           city: 'New York',
           coordinates: {
             latitude: 40.7128,
-            longitude: -74.0060
-          }
-        }
+            longitude: -74.006,
+          },
+        },
       };
 
       expect(isSessionMetadata(validMetadata)).toBe(true);
@@ -32,7 +30,7 @@ describe('Session Types', () => {
 
     it('should validate minimal metadata structure', () => {
       const minimalMetadata = {
-        ip: '192.168.1.1'
+        ip: '192.168.1.1',
       };
 
       expect(isSessionMetadata(minimalMetadata)).toBe(true);
@@ -40,7 +38,7 @@ describe('Session Types', () => {
 
     it('should reject invalid metadata structure', () => {
       const invalidMetadata = {
-        ip: 'invalid-ip'
+        ip: 'invalid-ip',
       };
 
       expect(isSessionMetadata(invalidMetadata)).toBe(false);
@@ -56,7 +54,7 @@ describe('Session Types', () => {
         trustLevel: DeviceTrustLevel.TRUSTED,
         riskFlags: [],
         lastVerification: new Date(),
-        verificationMethod: '2FA'
+        verificationMethod: '2FA',
       };
 
       expect(isSessionSecurityContext(validContext)).toBe(true);
@@ -68,7 +66,7 @@ describe('Session Types', () => {
         deviceId: 'invalid-uuid',
         browserFingerprint: 'short',
         trustLevel: 'invalid-level',
-        riskFlags: []
+        riskFlags: [],
       };
 
       expect(isSessionSecurityContext(invalidContext)).toBe(false);
@@ -89,4 +87,4 @@ describe('Session Types', () => {
       expect(isDeviceTrustLevel('invalid-level')).toBe(false);
     });
   });
-}); 
+});

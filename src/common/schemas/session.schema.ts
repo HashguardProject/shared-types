@@ -35,4 +35,4 @@ export const SessionSecurityContextSchema = z.object({
 });
 
 export type SessionMetadataSchemaType = z.infer<typeof SessionMetadataSchema>;
-export type SessionSecurityContextSchemaType = z.infer<typeof SessionSecurityContextSchema>; 
+export type SessionSecurityContextSchemaType = z.infer<typeof SessionSecurityContextSchema>;

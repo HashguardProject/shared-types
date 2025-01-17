@@ -7,14 +7,18 @@ export const DevMetadataSchema = z.object({
   server: z.string().optional(),
   environment: z.string().optional(),
   processingTime: z.number().nonnegative().optional(),
-  debugInfo: z.object({
-    memoryUsage: z.number().nonnegative().optional(),
-    queryTime: z.number().nonnegative().optional(),
-    cacheStats: z.object({
-      hits: z.number().nonnegative(),
-      misses: z.number().nonnegative(),
-    }).optional(),
-  }).optional(),
+  debugInfo: z
+    .object({
+      memoryUsage: z.number().nonnegative().optional(),
+      queryTime: z.number().nonnegative().optional(),
+      cacheStats: z
+        .object({
+          hits: z.number().nonnegative(),
+          misses: z.number().nonnegative(),
+        })
+        .optional(),
+    })
+    .optional(),
 });
 
 export const PaginationMetaSchema = z.object({
@@ -34,11 +38,13 @@ export const ApiResponseMetaSchema = z.object({
   region: z.string().optional(),
   processingTime: z.number().nonnegative().optional(),
   features: z.array(z.string()).optional(),
-  deprecation: z.object({
-    message: z.string(),
-    sunsetDate: z.string().datetime(),
-    docUrl: z.string().url(),
-  }).optional(),
+  deprecation: z
+    .object({
+      message: z.string(),
+      sunsetDate: z.string().datetime(),
+      docUrl: z.string().url(),
+    })
+    .optional(),
   etag: z.string().optional(),
   lastModified: z.string().datetime().optional(),
   pagination: PaginationMetaSchema.optional(),
@@ -64,25 +70,30 @@ export const ErrorResponseSchema = z.object({
   meta: ApiResponseMetaSchema,
 });
 
-export const SecurityResponseSchema = <T extends z.ZodType>(dataSchema: T) => z.object({
-  success: z.boolean(),
-  data: dataSchema.optional(),
-  error: z.object({
-    code: z.string(),
-    message: z.string(),
-    details: z.record(z.unknown()).optional(),
-  }).optional(),
-  meta: z.object({
-    requestId: z.string().uuid(),
-    timestamp: z.date(),
-    processingTime: z.number().nonnegative().optional(),
-  }),
-  security: z.object({
-    riskLevel: RiskSeveritySchema,
-    requiresAction: z.boolean(),
-    recommendations: z.array(SecurityRecommendationSchema).optional(),
-  }).optional(),
-});
+export const SecurityResponseSchema = <T extends z.ZodType>(dataSchema: T) =>
+  z.object({
+    success: z.boolean(),
+    data: dataSchema.optional(),
+    error: z
+      .object({
+        code: z.string(),
+        message: z.string(),
+        details: z.record(z.unknown()).optional(),
+      })
+      .optional(),
+    meta: z.object({
+      requestId: z.string().uuid(),
+      timestamp: z.date(),
+      processingTime: z.number().nonnegative().optional(),
+    }),
+    security: z
+      .object({
+        riskLevel: RiskSeveritySchema,
+        requiresAction: z.boolean(),
+        recommendations: z.array(SecurityRecommendationSchema).optional(),
+      })
+      .optional(),
+  });
 
 export const AuthenticationResponseSchema = z.object({
   tokens: z.object({
@@ -102,12 +113,15 @@ export const AuthenticationResponseSchema = z.object({
   }),
 });
 
-export const ApiResponseSchema = <T extends z.ZodType>(dataSchema: T) => z.object({
-  data: dataSchema,
-  meta: ApiResponseMetaSchema,
-  links: ApiLinksSchema.optional(),
-  included: z.array(z.record(z.unknown())).optional(),
-});
+export const ApiResponseSchema = <T extends z.ZodType>(dataSchema: T) =>
+  z.object({
+    data: dataSchema,
+    meta: ApiResponseMetaSchema,
+    links: ApiLinksSchema.optional(),
+    included: z.array(z.record(z.unknown())).optional(),
+  });
 
 export type ApiResponseSchemaType<T> = z.infer<ReturnType<typeof ApiResponseSchema<z.ZodType<T>>>>;
-export type SecurityResponseSchemaType<T> = z.infer<ReturnType<typeof SecurityResponseSchema<z.ZodType<T>>>>; 
+export type SecurityResponseSchemaType<T> = z.infer<
+  ReturnType<typeof SecurityResponseSchema<z.ZodType<T>>>
+>;

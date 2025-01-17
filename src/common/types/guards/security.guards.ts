@@ -1,12 +1,8 @@
-import { 
-  SecurityContext, 
-  RiskSeverity, 
-  SecurityFlag 
-} from '../security/security.types';
-import { 
+import { SecurityContext, RiskSeverity, SecurityFlag } from '../security/security.types';
+import {
   SecurityContextSchema,
   RISK_SEVERITY_RANGES,
-  isValidTrustScore
+  isValidTrustScore,
 } from '../../schemas/security.schema';
 
 /**
@@ -65,7 +61,9 @@ export const getRiskSeverityFromScore = (trustScore: number): RiskSeverity => {
  * @param context - Security context to evaluate
  */
 export const requiresVerification = (context: SecurityContext): boolean => {
-  return context.requiresVerification || 
-         context.flags.includes(SecurityFlag.VERIFICATION_REQUIRED) ||
-         context.riskLevel === RiskSeverity.CRITICAL;
-}; 
+  return (
+    context.requiresVerification ||
+    context.flags.includes(SecurityFlag.VERIFICATION_REQUIRED) ||
+    context.riskLevel === RiskSeverity.CRITICAL
+  );
+};

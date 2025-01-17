@@ -10,3 +10,4 @@ export * from './filesystem/filesystem.types';
 export * from './filesystem/permissions.types';
 export * from './filesystem/storage.types';
 export * from './objects/user.types';
+export * from './guards/index';

@@ -1,9 +1,6 @@
 import {
   isFingerprint,
   isRiskSeverity,
-  isDeviceType,
-  isSecurityEvent,
-  isValidationResult,
   parseFingerprint,
 } from '../index';
 import { RiskSeverity } from '../../security/security.types';
@@ -101,4 +98,4 @@ describe('Type Guards', () => {
       expect(result).toBeNull();
     });
   });
-}); 
+});

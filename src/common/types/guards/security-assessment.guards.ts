@@ -4,13 +4,13 @@ import {
   SecurityRecommendation,
   SecurityFactorType,
   RecommendationType,
-  Priority
+  Priority,
 } from '../security/security-assessment.types';
 import {
   SecurityAssessmentSchema,
   SecurityFactorSchema,
   SecurityRecommendationSchema,
-  calculateWeightedRiskScore
+  calculateWeightedRiskScore,
 } from '../../schemas/security-assessment.schema';
 import { getRiskSeverityFromScore } from './security.guards';
 
@@ -78,4 +78,4 @@ export const parseSecurityAssessment = (value: unknown): SecurityAssessment | nu
 export const calculateRiskLevel = (factors: SecurityFactor[]) => {
   const weightedScore = calculateWeightedRiskScore(factors);
   return getRiskSeverityFromScore(weightedScore);
-}; 
+};

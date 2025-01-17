@@ -1,16 +1,16 @@
-import { 
-  DeviceInfo, 
-  DeviceHardwareInfo, 
-  DeviceSoftwareInfo, 
+import {
+  DeviceInfo,
+  DeviceHardwareInfo,
+  DeviceSoftwareInfo,
   DeviceNetworkInfo,
   DeviceType,
-  OperatingSystem
+  OperatingSystem,
 } from '../device.types';
 import {
   DeviceInfoSchema,
   DeviceHardwareSchema,
   DeviceSoftwareSchema,
-  DeviceNetworkSchema
+  DeviceNetworkSchema,
 } from '../../schemas/device.schema';
 
 /**
@@ -68,4 +68,4 @@ export const isDeviceInfo = (value: unknown): value is DeviceInfo => {
 export const parseDeviceInfo = (value: unknown): DeviceInfo | null => {
   const result = DeviceInfoSchema.safeParse(value);
   return result.success ? result.data : null;
-}; 
+};

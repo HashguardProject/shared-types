@@ -1,4 +1,4 @@
-import { FileType } from "./storage.types";
+import { FileType } from './storage.types';
 
 // filesystem.types.ts
 export interface File {

@@ -1,4 +1,4 @@
-import { SecurityFlag } from "./security/security.types";
+import { SecurityFlag } from './security/security.types';
 
 /**
  * Represents metadata about a user's session

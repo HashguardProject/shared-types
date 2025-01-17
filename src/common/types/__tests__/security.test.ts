@@ -4,13 +4,9 @@ import {
   isSecurityContext,
   parseSecurityContext,
   getRiskSeverityFromScore,
-  requiresVerification
+  requiresVerification,
 } from '../guards/security.guards';
-import { 
-  RiskSeverity, 
-  SecurityFlag, 
-  SecurityContext 
-} from '../security/security.types';
+import { RiskSeverity, SecurityFlag, SecurityContext } from '../security/security.types';
 
 describe('Security Types', () => {
   describe('Enums', () => {
@@ -68,22 +64,28 @@ describe('Security Types', () => {
     });
 
     it('should correctly determine verification requirements', () => {
-      expect(requiresVerification({
-        ...validContext,
-        requiresVerification: true
-      })).toBe(true);
+      expect(
+        requiresVerification({
+          ...validContext,
+          requiresVerification: true,
+        }),
+      ).toBe(true);
 
-      expect(requiresVerification({
-        ...validContext,
-        flags: [SecurityFlag.VERIFICATION_REQUIRED]
-      })).toBe(true);
+      expect(
+        requiresVerification({
+          ...validContext,
+          flags: [SecurityFlag.VERIFICATION_REQUIRED],
+        }),
+      ).toBe(true);
 
-      expect(requiresVerification({
-        ...validContext,
-        riskLevel: RiskSeverity.CRITICAL
-      })).toBe(true);
+      expect(
+        requiresVerification({
+          ...validContext,
+          riskLevel: RiskSeverity.CRITICAL,
+        }),
+      ).toBe(true);
 
       expect(requiresVerification(validContext)).toBe(false);
     });
   });
-}); 
+});

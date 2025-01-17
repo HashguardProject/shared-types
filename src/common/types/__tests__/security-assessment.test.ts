@@ -6,13 +6,13 @@ import {
   isSecurityRecommendation,
   isSecurityAssessment,
   parseSecurityAssessment,
-  calculateRiskLevel
+  calculateRiskLevel,
 } from '../guards/security-assessment.guards';
 import {
   SecurityFactorType,
   RecommendationType,
   Priority,
-  SecurityAssessment
+  SecurityAssessment,
 } from '../security/security-assessment.types';
 import { RiskSeverity } from '../security/security.types';
 
@@ -104,4 +104,4 @@ describe('Security Assessment Types', () => {
       expect(isSecurityAssessment(invalidFactors)).toBe(false);
     });
   });
-}); 
+});
