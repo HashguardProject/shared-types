@@ -1,9 +1,10 @@
 import { z } from 'zod';
-import type { Fingerprint, ValidationResult } from '../index';
 import { FingerprintSchema } from '../../schemas/fingerprint.schema';
 import { RiskSeverity } from '../security/security.types';
 import { DeviceType } from '../objects/device.types';
 import { SecurityEvent } from '../security/security-events.types';
+import { ValidationResult } from '../security/validation.types';
+import { Fingerprint } from '../objects/fingerprint.types';
 
 /**
  * Type guard for Fingerprint type

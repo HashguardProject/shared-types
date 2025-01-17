@@ -1,6 +1,6 @@
 // src/__tests__/types.test.ts
-import { Fingerprint, DeviceType, OperatingSystem } from '../index';
-import { RiskSeverity } from '../security/security.types';
+import { Fingerprint, DeviceType, OperatingSystem } from '../../..';
+import { RiskSeverity } from '../../..';
 
 describe('Type Validation', () => {
   it('should validate Fingerprint type structure', () => {
