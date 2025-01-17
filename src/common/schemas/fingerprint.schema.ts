@@ -5,7 +5,6 @@ export const ScreenSchema = z.object({
   width: z.number().int().positive(),
   height: z.number().int().positive(),
   ratio: z.number().positive(),
-  colorDepth: z.number().int().positive(),
 });
 
 export const HardwareSchema = z.object({

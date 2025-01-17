@@ -1,8 +1,12 @@
 import { z } from 'zod';
 import { DeviceType } from '../types/device.types';
-import { ScreenSchema } from './fingerprint.schema';
 
-
+export const DeviceScreenSchema = z.object({
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  ratio: z.number().positive(),
+  colorDepth: z.number().int().positive(),
+});
 
 export const OperatingSystemSchema = z.object({
   name: z.string().min(1),
@@ -13,7 +17,7 @@ export const DeviceHardwareSchema = z.object({
   type: z.nativeEnum(DeviceType),
   platform: z.string().min(1),
   os: OperatingSystemSchema,
-  screen: ScreenSchema,
+  screen: DeviceScreenSchema,
   cores: z.number().int().positive(),
 });
 
