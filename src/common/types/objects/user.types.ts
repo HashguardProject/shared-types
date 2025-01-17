@@ -1,4 +1,4 @@
-import { DeviceType } from '../device.types';
+import { DeviceType } from './device.types';
 import { StorageQuota, StorageUsage } from '../filesystem/storage.types';
 
 // user.types.ts

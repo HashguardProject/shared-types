@@ -5,7 +5,7 @@ import {
   DeviceNetworkInfo,
   DeviceType,
   OperatingSystem,
-} from '../device.types';
+} from '../objects/device.types';
 import {
   DeviceInfoSchema,
   DeviceHardwareSchema,

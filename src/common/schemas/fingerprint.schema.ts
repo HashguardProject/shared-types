@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { OperatingSystem } from '../types/device.types';
+import { OperatingSystem } from '../types/objects/device.types';
 
 export const ScreenSchema = z.object({
   width: z.number().int().positive(),

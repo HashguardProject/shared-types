@@ -2,7 +2,7 @@ import { z } from 'zod';
 import type { Fingerprint, ValidationResult } from '../index';
 import { FingerprintSchema } from '../../schemas/fingerprint.schema';
 import { RiskSeverity } from '../security/security.types';
-import { DeviceType } from '../device.types';
+import { DeviceType } from '../objects/device.types';
 import { SecurityEvent } from '../security/security-events.types';
 
 /**

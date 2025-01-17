@@ -1,4 +1,4 @@
-import { ComponentMatch } from '../fingerprint.types';
+import { ComponentMatch } from '../objects/fingerprint.types';
 
 // validation.types.ts
 export interface ValidationResult {

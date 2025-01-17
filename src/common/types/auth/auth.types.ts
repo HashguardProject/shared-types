@@ -1,5 +1,5 @@
-import { Fingerprint } from './fingerprint.types';
-import { RiskSeverity, SecurityFlag } from './security/security.types';
+import { Fingerprint } from '../objects/fingerprint.types';
+import { RiskSeverity, SecurityFlag } from '../security/security.types';
 
 // auth.types.ts
 export interface TokenMetadata {

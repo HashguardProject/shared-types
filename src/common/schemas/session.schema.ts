@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { DeviceTrustLevel } from '../types/session.types';
+import { DeviceTrustLevel } from '../types/objects/session.types';
 import { SecurityFlagSchema } from './security.schema';
 
 export const CoordinatesSchema = z.object({

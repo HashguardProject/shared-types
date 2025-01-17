@@ -3,7 +3,7 @@ import {
   SessionSecurityContext,
   DeviceTrustLevel,
   BrowserInfo,
-} from '../session.types';
+} from '../objects/session.types';
 import {
   SessionMetadataSchema,
   SessionSecurityContextSchema,

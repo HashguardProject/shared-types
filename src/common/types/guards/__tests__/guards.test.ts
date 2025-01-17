@@ -1,6 +1,6 @@
 import { isFingerprint, isRiskSeverity, parseFingerprint } from '../index';
 import { RiskSeverity } from '../../security/security.types';
-import { OperatingSystem } from '../../device.types';
+import { OperatingSystem } from '../../objects/device.types';
 
 describe('Type Guards', () => {
   describe('isFingerprint', () => {

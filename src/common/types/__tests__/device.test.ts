@@ -7,7 +7,7 @@ import {
   isDeviceNetworkInfo,
   parseDeviceInfo,
 } from '../guards/device.guards';
-import { DeviceType, OperatingSystem } from '../device.types';
+import { DeviceType, OperatingSystem } from '../objects/device.types';
 
 describe('Device Types', () => {
   describe('Enums', () => {

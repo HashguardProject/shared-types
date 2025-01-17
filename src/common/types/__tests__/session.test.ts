@@ -5,7 +5,7 @@ import {
   parseSessionMetadata,
   parseSessionSecurityContext,
 } from '../guards/session.guards';
-import { DeviceTrustLevel } from '../session.types';
+import { DeviceTrustLevel } from '../objects/session.types';
 
 describe('Session Types', () => {
   describe('SessionMetadata', () => {

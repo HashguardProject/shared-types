@@ -9,7 +9,7 @@ import {
   parseSecurityResponse,
 } from '../guards/response.guards';
 import { RiskSeverity } from '../security/security.types';
-import { DeviceTrustLevel } from '../session.types';
+import { DeviceTrustLevel } from '../objects/session.types';
 
 describe('Response Types', () => {
   describe('ApiResponseMeta', () => {
