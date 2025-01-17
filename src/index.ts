@@ -20,4 +20,4 @@ export * from './common/schemas/device.schema';
 export * from './common/schemas/fingerprint.schema';
 export * from './common/schemas/response.schema';
 export * from './common/schemas/security.schema';
-export * from './common/schemas/session.schema'; 
+export * from './common/schemas/session.schema';

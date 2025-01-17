@@ -1,8 +1,4 @@
-import {
-  isFingerprint,
-  isRiskSeverity,
-  parseFingerprint,
-} from '../index';
+import { isFingerprint, isRiskSeverity, parseFingerprint } from '../index';
 import { RiskSeverity } from '../../security/security.types';
 import { OperatingSystem } from '../../device.types';
 
