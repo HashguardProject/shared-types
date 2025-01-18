@@ -24,88 +24,89 @@ Before installing, you need to authenticate with GitHub Packages. Choose one of 
    - Copy your token
 
 2. Configure authentication (choose one):
-
-bash
+```bash
 Option 1: Add to your global ~/.npmrc (Recommended for personal development)
 echo "//npm.pkg.github.com/:authToken=YOUR_PAT_TOKEN" >> ~/.npmrc
 
+
 Option 2: Use environment variable
 export GITHUB_TOKEN=YOUR_PAT_TOKEN
-
+```
 
 #### Method B: CI/CD Environment (GitHub Actions)
 
-yaml
+```yaml
 - uses: actions/setup-node@v3
 with:
 node-version: '20'
 registry-url: 'https://npm.pkg.github.com'
 scope: '@hashguard'
+```
 
 ### 2. Project Setup
 
 1. Create `.npmrc` in your project root:
-ini
+```ini
 @hashguard:registry=https://npm.pkg.github.com
+```
 
 
 2. Install the package:
-bash
+```bash
 npm install @hashguard/shared-types
-
+```
 
 ## Usage
 
-typescript
+```typescript
 import { Fingerprint, DeviceType, RiskSeverity } from '@hashguard/shared-types';
 // Use the types in your code
 const fingerprint: Fingerprint = {
 // ...
 };
+```
 
 ## Cloud Deployment
 
 ### Option 1: Using Environment Variables
-bash
+```bash
 Add to your cloud platform's environment variables
 GITHUB_TOKEN=your_pat_token
+
 Your application will use this token via .npmrc
 @hashguard:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:authToken=${GITHUB_TOKEN}
-
+```
 ### Option 2: Using Secret Management
-bash
+```bash
 # AWS Systems Manager example
 aws ssm put-parameter \
 --name "/myapp/github_token" \
 --value "your_pat_token" \
 --type "SecureString"
-
+```
 
 ## To use in other projects:
 
 ### Add to .npmrc
+```bash
 @hashguard:registry=https://npm.pkg.github.com
+```
 
 ### Install the package
+```bash
 npm install @hashguard/shared-types
-
-
-## Development
-
-### Local Setup
-
-1. Clone the repository:
-
+```
 
 ## Development
 
 ### Local Setup
 
 1. Clone the repository:
-bash
+```bash
 git clone https://github.com/hashguard/shared-types.git
 cd shared-types
+```
 
 2. Install dependencies: `npm install`
 3. Run tests: `npm test`
@@ -113,12 +114,40 @@ cd shared-types
 
 ## Publishing
 
-1. Update version: `npm version [patch|minor|major]`
-2. Push changes and tags: `git push && git push --tags`
-3. The CI pipeline will automatically:
+```bash
+1. Run tests and checks
+
+npm run test
+npm run type-check
+npm run lint
+
+2. Update version (choose one)
+
+npm version patch # 1.0.0 -> 1.0.1
+npm version minor # 1.0.0 -> 1.1.0
+npm version major # 1.0.0 -> 2.0.0
+
+
+3. Build the package
+
+npm run build
+`
+
+4. Publish to npm registry
+
+npm publish
+
+
+5. Push changes and tags
+
+git push origin main --tags
+
+
+6. The CI pipeline will automatically:
    - Run tests
    - Build package
    - Publish to GitHub Packages
+```
 
 ## Security Best Practices
 

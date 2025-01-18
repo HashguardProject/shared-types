@@ -1,5 +1,39 @@
 import { DeviceType } from './device.types';
-import { StorageQuota, StorageUsage } from '../filesystem/storage.types';
+
+export enum UserPlan {
+  FREE = 'free',
+  PREMIUM = 'premium',
+  ENTERPRISE = 'enterprise',
+}
+
+export enum UserStatus {
+  ACTIVE = 'active',
+  INACTIVE = 'inactive',
+  SUSPENDED = 'suspended',
+  PENDING_VERIFICATION = 'pending_verification',
+}
+
+export enum ThemeType {
+  LIGHT = 'light',
+  DARK = 'dark',
+  SYSTEM = 'system',
+}
+
+export enum ViewMode {
+  LIST = 'list',
+  GRID = 'grid',
+  COMPACT = 'compact',
+}
+
+export enum SortOrder {
+  ASC = 'asc',
+  DESC = 'desc',
+}
+
+export enum UserRole {
+  USER = 'user',
+  ADMIN = 'admin',
+}
 
 // user.types.ts
 export interface User {
@@ -7,7 +41,17 @@ export interface User {
   email: string;
   isEmailVerified: boolean;
   createdAt: Date;
+  pushSubscription: PushSubscription;
   updatedAt: Date;
+  pseudo: string;
+  walletAddress?: string;
+  storageLimit: number;
+  storageUsed: number;
+  status: UserStatus;
+  role: UserRole;
+  plan: UserPlan;
+  permissions: string[];
+  activity: UserActivity;
 
   lastLogin?: Date;
   securityOverview?: UserSecurityOverview;
@@ -15,6 +59,13 @@ export interface User {
   profile?: UserProfile;
   storage?: UserStorage;
 }
+
+export interface UserActivity {
+    lastActive: Date;
+    totalLogins: number;
+    lastUpload?: Date;
+    lastDownload?: Date;
+  };
 
 export interface UserSecurityOverview {
   isEmailVerified: boolean;
@@ -71,7 +122,24 @@ export interface UserProfile {
 }
 
 export interface UserStorage {
-  quota: StorageQuota;
-  usage: StorageUsage;
-  lastUpdated: Date;
+  files: {
+    count: number;
+    totalSize: number;
+    lastUpdated: Date;
+  };
+  quota: {
+    limit: number;
+    used: number;
+    lastUpdated: Date;
+  };
+}
+
+
+export interface PushSubscription {
+  endpoint: string;
+  expirationTime: number | null;
+  keys: {
+    p256dh: string;
+    auth: string;
+  };
 }
