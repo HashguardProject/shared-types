@@ -41,7 +41,7 @@ export interface TokenRotationDto {
   fingerprint: Fingerprint;
 }
 
-export interface TokenRotationResponse {
+export interface AuthTokenResponse {
   session_info: SessionInfo;
   csrf: {
     token: string;
@@ -61,7 +61,7 @@ export interface RefreshTokenDto {
   fingerprint: Fingerprint;
 }
 
-export type RefreshTokenResponse = TokenRotationResponse;
+export type RefreshTokenResponse = AuthTokenResponse;
 
 export interface LogoutRequestDto {
   sessionId: string;

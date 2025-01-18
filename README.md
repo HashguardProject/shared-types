@@ -47,7 +47,7 @@ scope: '@hashguard'
 
 1. Create `.npmrc` in your project root:
 ```ini
-@hashguard:registry=https://npm.pkg.github.com
+@hashguardproject:registry=https://npm.pkg.github.com
 ```
 
 
@@ -74,7 +74,7 @@ Add to your cloud platform's environment variables
 GITHUB_TOKEN=your_pat_token
 
 Your application will use this token via .npmrc
-@hashguard:registry=https://npm.pkg.github.com
+@hashguardproject:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:authToken=${GITHUB_TOKEN}
 ```
 ### Option 2: Using Secret Management
@@ -90,7 +90,7 @@ aws ssm put-parameter \
 
 ### Add to .npmrc
 ```bash
-@hashguard:registry=https://npm.pkg.github.com
+@hashguardproject:registry=https://npm.pkg.github.com
 ```
 
 ### Install the package
@@ -112,13 +112,34 @@ cd shared-types
 3. Run tests: `npm test`
 4. Build: `npm run build`
 
+
+## Authenticate
+
+1. Get your token:
+Go to github, on settings => dev settings => token
+
+2. Add your token on your global .npmrc
+```bash
+echo "@hashguardproject:registry=https://npm.pkg.github.com 
+//npm.pkg.github.com/:_authToken=ghp_YOUR_TOKEN" > ~/.npmrc
+```
+3. add your token on your codebase
+```bash
+export GITHUB_TOKEN=ghp_YOUR_TOKEN
+```
+
+4. Verify
+```bash
+npm whoami --registry=https://npm.pkg.github.com
+(should send back your github username)
+```
+
 ## Publishing
 
 ```bash
 1. Run tests and checks
 
 npm run test
-npm run type-check
 npm run lint
 
 2. Update version (choose one)
