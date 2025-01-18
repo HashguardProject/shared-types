@@ -61,11 +61,11 @@ export interface User {
 }
 
 export interface UserActivity {
-    lastActive: Date;
-    totalLogins: number;
-    lastUpload?: Date;
-    lastDownload?: Date;
-  };
+  lastActive: Date;
+  totalLogins: number;
+  lastUpload?: Date;
+  lastDownload?: Date;
+}
 
 export interface UserSecurityOverview {
   isEmailVerified: boolean;
@@ -133,7 +133,6 @@ export interface UserStorage {
     lastUpdated: Date;
   };
 }
-
 
 export interface PushSubscription {
   endpoint: string;
