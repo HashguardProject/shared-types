@@ -1,35 +1,40 @@
-// Types exports
-export * from './common/types/auth/auth.types';
-export * from './common/types/objects/device.types';
-export * from './common/types/objects/fingerprint.types';
-export * from './common/types/filesystem/filesystem.types';
-export * from './common/types/filesystem/permissions.types';
-export * from './common/types/filesystem/storage.types';
+//Object types
 export * from './common/types/objects/user.types';
-export * from './common/types/guards/index';
+export * from './common/types/objects/session.types';
+export * from './common/types/objects/fingerprint.types';
+export * from './common/types/objects/device.types';
+
+//Security types
+export * from './common/types/security/security-assessment.types';
+export * from './common/types/security/validation.types';
+export * from './common/types/response.types';
+export * from './common/types/security/security-events.types';
 export * from './common/types/security/security.types';
-export * from './common/types/security/security-assessment.types';
-export * from './common/types/security/security-events.types';
 export * from './common/types/security/validation.types';
-export * from './common/types/response.types';
-export * from './common/types/objects/session.types';
-export * from './common/types/objects/user.types';
-export * from './common/types/objects/fingerprint.types';
-export * from './common/types/objects/session.types';
-export * from './common/types/auth/auth.types';
-export * from './common/types/security/security-assessment.types';
-export * from './common/types/security/validation.types';
-export * from './common/types/response.types';
-export * from './common/types/security/security-events.types';
-export * from './common/types/objects/device.types';
-export * from './common/types/filesystem/filesystem.types';
+
+// File System types
+export * from './common/types/filesystem/common.types';
+export * from './common/types/filesystem/file.types';
+export * from './common/types/filesystem/folder.types';
 export * from './common/types/filesystem/permissions.types';
 export * from './common/types/filesystem/storage.types';
-export * from './common/types/objects/user.types';
+export * from './common/types/filesystem/permissions.types';
+export * from './common/types/filesystem/storage.types';
+
+// Guards
 export * from './common/types/guards/index';
+
+// Auth
+export * from './common/types/auth/auth.types';
 export * from './common/types/auth/auth-routes.types';
 export * from './common/types/auth/oauth2.types';
+
+// Geolocation
 export * from './common/types/geolocation.types';
+
+// Response types
+export * from './common/types/response.types';
+
 
 // Schemas exports (if needed)
 export * from './common/schemas/device.schema';
