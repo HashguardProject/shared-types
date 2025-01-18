@@ -35,7 +35,6 @@ export * from './common/types/geolocation.types';
 // Response types
 export * from './common/types/response.types';
 
-
 // Schemas exports (if needed)
 export * from './common/schemas/device.schema';
 export * from './common/schemas/fingerprint.schema';
