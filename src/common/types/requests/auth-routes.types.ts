@@ -77,7 +77,6 @@ export interface CurrentUserResponse {
   session: Session;
 }
 
-
 /**
  * Required Headers
  */
