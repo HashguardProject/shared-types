@@ -1,4 +1,4 @@
-import { Session } from "../objects/session.types";
+import { Session } from '../objects/session.types';
 
 export interface SessionResponse {
   accessToken: string;

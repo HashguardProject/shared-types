@@ -101,7 +101,6 @@ export interface UserPreferences {
   timezone: string;
 }
 
-
 export interface UserStorage {
   files: {
     count: number;
@@ -135,8 +134,6 @@ export interface MFAPreferences {
   };
 }
 
-
-
 /**
  * Represents a user's complete profile information
  * @interface UserProfile
@@ -147,13 +144,12 @@ export interface UserProfile {
 
   /** User's display name/pseudonym */
   pseudo: string;
-  
 
-  company?: string
+  company?: string;
 
-  location?: string
-  
-  website?: string
+  location?: string;
+
+  website?: string;
 
   /** User's email address */
   email: string;

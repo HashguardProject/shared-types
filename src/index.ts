@@ -28,7 +28,6 @@ export * from './common/types/requests/folders.responses.types';
 export * from './common/types/requests/files.responses.types';
 export * from './common/types/requests/session.responses.types';
 
-
 // Common types
 export * from './common/types/common.types';
 
