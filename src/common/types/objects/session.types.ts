@@ -137,7 +137,20 @@ export interface Session {
   /** Associated user ID */
   userId: string;
   /** Device information */
-  deviceInfo: DeviceInfo;
+  device: {
+    /** Device identifier */
+    id?: string;
+    /** Browser identifier */
+    browserId?: string;
+    /** Device details */
+    info?: DeviceInfo;
+    /** Trust level of device */
+    trustLevel?: DeviceTrustLevel;
+    /** When device was first seen */
+    firstSeen: Date;
+    /** When device was last verified */
+    lastVerified: Date;
+  };
   /** Session risk level */
   riskLevel: RiskSeverity;
   /** Current session state */
