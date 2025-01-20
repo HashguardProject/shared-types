@@ -16,20 +16,20 @@ export interface IFolderStats {
 export interface IFolder {
   id: string; // MongoDB _id
   name: string;
-  lastOpened: Date;
-  lastModifiedBy: string | null; // ObjectId as string
+  lastOpened?: Date;
+  lastModifiedBy?: string | null; // ObjectId as string
   createdBy: string; // ObjectId as string
   parentFolderId?: string | null; // ObjectId as string
   privacyStatus: PrivacyResourceStatus;
-  color: string;
+  color?: string;
   icon?: string;
   description?: string;
-  isFavorite: boolean;
+  isFavorite?: boolean;
   status: ResourceStatus;
   deletedAt?: Date;
-  tags: string[];
-  metadata: Map<string, any>;
-  stats: IFolderStats;
+  tags?: string[];
+  metadata?: Map<string, any>;
+  stats?: IFolderStats;
 
   // Virtual properties
   formattedStats: {
