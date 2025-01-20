@@ -1,5 +1,6 @@
 import { SortOrder, VerificationMethod } from '../../..';
 import { DeviceType } from './device.types';
+import { GeoLocation } from '../geolocation.types';
 
 export enum UserPlan {
   FREE = 'free',
@@ -79,7 +80,7 @@ export interface SecurityActivity {
   timestamp: Date;
   action: string;
   details: Record<string, unknown>;
-  location?: string;
+  location?: GeoLocation;
   deviceInfo?: {
     type: DeviceType;
     browser: string;
@@ -103,6 +104,11 @@ export interface UserPreferences {
 
 export interface UserStorage {
   files: {
+    count: number;
+    totalSize: number;
+    lastUpdated: Date;
+  };
+  folders: {
     count: number;
     totalSize: number;
     lastUpdated: Date;
@@ -179,7 +185,7 @@ export interface UserProfile {
   contactInfo?: ContactInfo;
 
   /** User's storage usage statistics */
-  storage: UserStorageStats;
+  storage: UserStorage;
 
   /** Timestamp of last login */
   lastLogin?: Date;
@@ -220,37 +226,6 @@ export interface ContactInfo {
   };
 }
 
-/**
- * Storage statistics for a user
- * @interface UserStorageStats
- */
-export interface UserStorageStats {
-  /** Total storage used in bytes */
-  used: number;
-
-  /** Storage limit in bytes */
-  limit: number;
-
-  /** Number of files stored */
-  fileCount: number;
-
-  /** Number of folders */
-  folderCount: number;
-
-  /** Storage usage percentage */
-  usagePercentage: number;
-
-  /** Storage usage by file type */
-  byType?: {
-    [key: string]: {
-      count: number;
-      size: number;
-    };
-  };
-
-  /** Last storage calculation timestamp */
-  lastCalculated: Date;
-}
 
 /**
  * User notification preferences

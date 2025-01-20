@@ -28,6 +28,8 @@ export interface ApiResponseMeta {
   /** API version used for the response */
   apiVersion: string;
   /** Response timestamp in ISO format */
+  success: boolean;
+  /** Response timestamp in ISO format */
   timestamp: string;
   /** Unique request identifier */
   requestId?: string;
