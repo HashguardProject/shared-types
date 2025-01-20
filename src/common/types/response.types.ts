@@ -235,7 +235,9 @@ export interface ApiListResponse<T> extends ApiResponse<T[]> {
  */
 export interface PaginatedResponse<T> extends ApiResponse<T[]> {
   data: T[];
-  meta: ApiResponseMeta & PaginationMeta;
+  meta: ApiResponseMeta & {
+    pagination: NonNullable<ApiResponseMeta['pagination']>;
+  };
 }
 
 /**

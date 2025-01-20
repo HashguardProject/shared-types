@@ -1,6 +1,7 @@
-import { ResourceStatus } from './common.types';
+import { PrivacyResourceStatus, ResourceStatus } from './common.types';
 import { SortOrder } from '../common.types';
 import { IFile } from './file.types';
+
 
 // Query Parameters
 export interface FileQueryParams {
@@ -15,7 +16,8 @@ export interface FileQueryParams {
   lastModifiedBy?: string;
   mimeType?: string[];
   extension?: string[];
-  category?: FileContentCategory;
+  privacyStatus?: PrivacyResourceStatus;
+  category?: FileContentCategory[];
   minSize?: number;
   maxSize?: number;
   createdAfter?: string;
