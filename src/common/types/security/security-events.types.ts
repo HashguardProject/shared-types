@@ -78,6 +78,5 @@ export enum SecurityEventType {
   BEHAVIOR_UNUSUAL_ACTIVITY = 'behavior.unusual.activity',
   BEHAVIOR_ANOMALY = 'behavior.anomaly',
   BEHAVIOR_TIME_ANOMALY = 'behavior.time.anomaly',
-  BEHAVIOR_CONCURRENT_ACCESS = 'behavior.concurrent.access'
+  BEHAVIOR_CONCURRENT_ACCESS = 'behavior.concurrent.access',
 }
-
