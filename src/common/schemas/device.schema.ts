@@ -41,10 +41,10 @@ export const DeviceNetworkSchema = z.object({
   hosting: z.boolean().optional(),
 });
 
-export const DeviceInfoSchema = z.object({
+export const DeviceCompleteInfoSchema = z.object({
   hardware: DeviceHardwareSchema,
   software: DeviceSoftwareSchema,
   network: DeviceNetworkSchema,
 });
 
-export type DeviceInfoSchemaType = z.infer<typeof DeviceInfoSchema>;
+export type DeviceCompleteInfoSchemaType = z.infer<typeof DeviceCompleteInfoSchema>;

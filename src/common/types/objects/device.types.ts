@@ -117,11 +117,18 @@ export interface DeviceNetworkInfo {
   hosting?: boolean;
 }
 
+export interface DeviceInfo {
+  name?: string;
+  userAgent: string;
+  platform: Platform;
+  type: DeviceType;
+}
+
 /**
  * Complete device information
- * @interface DeviceInfo
+ * @interface DeviceCompleteInfo
  */
-export interface DeviceInfo {
+export interface DeviceCompleteInfo {
   /** Hardware-specific information */
   hardware: DeviceHardwareInfo;
   /** Software-specific information */

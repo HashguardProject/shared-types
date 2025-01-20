@@ -1,3 +1,4 @@
+import { VerificationMethod } from '../../..';
 import { DeviceType } from './device.types';
 
 export enum UserPlan {
@@ -135,5 +136,16 @@ export interface PushSubscription {
   keys: {
     p256dh: string;
     auth: string;
+  };
+}
+
+export interface MFAPreferences {
+  primaryMethod: VerificationMethod;
+  backupMethods: VerificationMethod[];
+  isEnabled: boolean;
+  settings?: {
+    email?: { address: string };
+    phone?: { number: string };
+    totp?: { secret: string; isConfigured: boolean };
   };
 }

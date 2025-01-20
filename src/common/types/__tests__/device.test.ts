@@ -24,7 +24,7 @@ describe('Device Types', () => {
     });
   });
 
-  describe('DeviceInfo', () => {
+  describe('DeviceCompleteInfo', () => {
     const validDeviceInfo = {
       hardware: {
         type: DeviceType.DESKTOP,

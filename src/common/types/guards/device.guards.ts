@@ -7,7 +7,7 @@ import {
   OperatingSystem,
 } from '../objects/device.types';
 import {
-  DeviceInfoSchema,
+  DeviceCompleteInfoSchema,
   DeviceHardwareSchema,
   DeviceSoftwareSchema,
   DeviceNetworkSchema,
@@ -58,7 +58,7 @@ export const isDeviceNetworkInfo = (value: unknown): value is DeviceNetworkInfo 
  * @param value - Value to check
  */
 export const isDeviceInfo = (value: unknown): value is DeviceInfo => {
-  return DeviceInfoSchema.safeParse(value).success;
+  return DeviceCompleteInfoSchema.safeParse(value).success;
 };
 
 /**
