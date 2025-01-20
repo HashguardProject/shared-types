@@ -240,6 +240,9 @@ export interface UserStorageStats {
   /** Number of folders */
   folderCount: number;
 
+  /** Storage usage percentage */
+  usagePercentage: number;
+
   /** Storage usage by file type */
   byType?: {
     [key: string]: {
