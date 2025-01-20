@@ -17,6 +17,10 @@ describe('Type Validation', () => {
           cores: 8,
         },
         system: {
+          os: {
+            name: 'Windows',
+            version: '10',
+          },
           platform: OperatingSystem.WINDOWS,
           language: 'en-US',
           timezone: 'UTC',

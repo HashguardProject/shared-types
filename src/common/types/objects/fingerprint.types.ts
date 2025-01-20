@@ -66,7 +66,7 @@ export interface Fingerprint {
     headerValidation?: boolean;
     validationDuration?: number;
   };
-  timestamp: Date;
+  timestamp: Date | number;
   confidence: number;
 }
 
