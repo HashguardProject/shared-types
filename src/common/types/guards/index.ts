@@ -74,10 +74,10 @@ export function assertFingerprint(value: unknown): asserts value is Fingerprint 
  * Utility function to safely parse a Fingerprint
  * @returns Parsed Fingerprint or null if invalid
  */
-export const parseFingerprint = (value: unknown): Fingerprint | null => {
-  const result = FingerprintSchema.safeParse(value);
-  return result.success ? (result.data as Fingerprint) : null;
-};
+// export const parseFingerprint = (value: unknown): Fingerprint | null => {
+//   const result = FingerprintSchema.safeParse(value);
+//   return result.success ? (result.data as Fingerprint) : null;
+// };
 
 /**
  * Type assertion helper for SecurityEvent
