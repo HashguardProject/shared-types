@@ -152,7 +152,7 @@ npm version major # 1.0.0 -> 2.0.0
 3. Build the package
 
 npm run build
-`
+
 
 4. Publish to npm registry
 
@@ -185,6 +185,3 @@ For issues and feature requests, please use the GitHub issue tracker.
 ## License
 
 MIT License - see LICENSE file for details
-
-
-

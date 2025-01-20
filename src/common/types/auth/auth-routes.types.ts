@@ -1,7 +1,7 @@
 import { Fingerprint } from '../objects/fingerprint.types';
 import { DeviceInfo } from '../objects/device.types';
 import { User } from '../objects/user.types';
-import { Session, SessionStatus } from '../objects/session.types';
+import { Session, SessionStatus, VerificationStatus } from '../objects/session.types';
 import { RiskSeverity, SecurityFlag } from '../security/security.types';
 
 export enum VerificationMethod {
@@ -88,10 +88,11 @@ export interface SessionInfo {
   expiresAt: string;
   lastActive: string;
   status: SessionStatus;
+  isCurrentSession?: boolean;
   securityState: {
     riskLevel: RiskSeverity;
     trustScore: number;
-    requiresVerification: boolean;
+    verificationStatus: VerificationStatus;
     restrictions: SecurityFlag[];
   };
 }

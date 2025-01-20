@@ -9,3 +9,4 @@ export enum PrivacyResourceStatus {
   PUBLIC = 'public',
   SHARED = 'shared',
 }
+

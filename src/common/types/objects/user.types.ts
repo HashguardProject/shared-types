@@ -25,11 +25,6 @@ export enum ViewMode {
   COMPACT = 'compact',
 }
 
-export enum SortOrder {
-  ASC = 'asc',
-  DESC = 'desc',
-}
-
 export enum UserRole {
   USER = 'user',
   ADMIN = 'admin',
