@@ -42,7 +42,7 @@ export interface TokenRotationDto {
 }
 
 export interface AuthTokenResponse {
-  session_info: SessionInfo;
+  session_info: Session;
   csrf: {
     token: string;
     expiresAt: string;
@@ -77,25 +77,6 @@ export interface CurrentUserResponse {
   session: Session;
 }
 
-/**
- * Session Types
- */
-export interface SessionInfo {
-  id: string;
-  userId: string;
-  deviceInfo: DeviceInfo;
-  createdAt: string;
-  expiresAt: string;
-  lastActive: string;
-  status: SessionStatus;
-  isCurrentSession?: boolean;
-  securityState: {
-    riskLevel: RiskSeverity;
-    trustScore: number;
-    verificationStatus: VerificationStatus;
-    restrictions: SecurityFlag[];
-  };
-}
 
 /**
  * Required Headers

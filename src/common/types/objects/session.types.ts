@@ -137,20 +137,7 @@ export interface Session {
   /** Associated user ID */
   userId: string;
   /** Device information */
-  device: {
-    /** Device identifier */
-    id: string;
-    /** Browser identifier */
-    browserId: string;
-    /** Device details */
-    info: DeviceInfo;
-    /** Trust level of device */
-    trustLevel: DeviceTrustLevel;
-    /** When device was first seen */
-    firstSeen: Date;
-    /** When device was last verified */
-    lastVerified: Date;
-  };
+  deviceInfo: DeviceInfo;
   /** Session risk level */
   riskLevel: RiskSeverity;
   /** Current session state */
@@ -175,4 +162,6 @@ export interface Session {
   createdAt: Date;
   /** Last update timestamp */
   updatedAt: Date;
+  /** Security restrictions */
+  restrictions?: SecurityFlag[];
 }
