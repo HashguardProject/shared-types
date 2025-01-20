@@ -226,7 +226,6 @@ export interface ContactInfo {
   };
 }
 
-
 /**
  * User notification preferences
  * @interface NotificationPreferences
