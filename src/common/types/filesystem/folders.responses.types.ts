@@ -164,14 +164,3 @@ export interface FolderActivityResponse {
   page: number;
   limit: number;
 }
-
-// API Response Wrapper
-export interface ApiResponse<T> {
-  data: T;
-  meta: {
-    apiVersion: string;
-    timestamp: string;
-    requestId: string;
-    cached?: boolean;
-  };
-}
