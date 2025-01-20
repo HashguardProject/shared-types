@@ -213,7 +213,6 @@ export interface AuthenticationResponse {
   };
 }
 
-
 /**
  * List response wrapper with filtering info
  */
@@ -238,8 +237,6 @@ export interface PaginatedResponse<T> extends ApiResponse<T[]> {
   data: T[];
   meta: ApiResponseMeta & PaginationMeta;
 }
-
-
 
 /**
  * Success response with no data

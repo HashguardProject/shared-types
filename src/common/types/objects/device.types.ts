@@ -49,7 +49,6 @@ export enum Browser {
   OTHER = 'other',
 }
 
-
 /**
  * Hardware-specific device information
  * @interface DeviceHardwareInfo
