@@ -1,4 +1,4 @@
-import { VerificationMethod } from '../../..';
+import { SortOrder, VerificationMethod } from '../../..';
 import { DeviceType } from './device.types';
 
 export enum UserPlan {
@@ -12,6 +12,7 @@ export enum UserStatus {
   INACTIVE = 'inactive',
   SUSPENDED = 'suspended',
   PENDING_VERIFICATION = 'pending_verification',
+  PENDING_PAYMENT = 'pending_payment',
 }
 
 export enum ThemeType {
@@ -100,22 +101,6 @@ export interface UserPreferences {
   timezone: string;
 }
 
-export interface NotificationPreferences {
-  email: boolean;
-  push: boolean;
-  securityAlerts: boolean;
-  updates: boolean;
-  marketing: boolean;
-}
-
-export interface UserProfile {
-  displayName?: string;
-  avatar?: string;
-  bio?: string;
-  company?: string;
-  location?: string;
-  website?: string;
-}
 
 export interface UserStorage {
   files: {
@@ -148,4 +133,225 @@ export interface MFAPreferences {
     phone?: { number: string };
     totp?: { secret: string; isConfigured: boolean };
   };
+}
+
+
+
+/**
+ * Represents a user's complete profile information
+ * @interface UserProfile
+ */
+export interface UserProfile {
+  /** Unique identifier for the user */
+  id: string;
+
+  /** User's display name/pseudonym */
+  pseudo: string;
+  
+
+  company?: string
+
+  location?: string
+  
+  website?: string
+
+  /** User's email address */
+  email: string;
+
+  /** URL to user's avatar image */
+  avatarUrl?: string;
+
+  /** User's biographical information */
+  bio?: string;
+
+  /** User's ethereum wallet address */
+  walletAddress?: string;
+
+  /** User's role in the system */
+  role: UserRole;
+
+  /** User's subscription plan */
+  plan: UserPlan;
+
+  /** Current account status */
+  status: UserStatus;
+
+  /** Whether the email address is verified */
+  isEmailVerified: boolean;
+
+  /** User's contact information */
+  contactInfo?: ContactInfo;
+
+  /** User's storage usage statistics */
+  storage: UserStorageStats;
+
+  /** Timestamp of last login */
+  lastLogin?: Date;
+
+  /** Timestamp of last activity */
+  lastActive?: Date;
+
+  /** Account creation timestamp */
+  createdAt: Date;
+
+  /** Last profile update timestamp */
+  updatedAt: Date;
+}
+
+/**
+ * Contact information for a user
+ * @interface ContactInfo
+ */
+export interface ContactInfo {
+  /** Phone number */
+  phone?: string;
+
+  /** Physical address */
+  address?: {
+    street?: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    postalCode?: string;
+  };
+
+  /** Social media links */
+  social?: {
+    twitter?: string;
+    github?: string;
+    linkedin?: string;
+    discord?: string;
+  };
+}
+
+/**
+ * Storage statistics for a user
+ * @interface UserStorageStats
+ */
+export interface UserStorageStats {
+  /** Total storage used in bytes */
+  used: number;
+
+  /** Storage limit in bytes */
+  limit: number;
+
+  /** Number of files stored */
+  fileCount: number;
+
+  /** Number of folders */
+  folderCount: number;
+
+  /** Storage usage by file type */
+  byType?: {
+    [key: string]: {
+      count: number;
+      size: number;
+    };
+  };
+
+  /** Last storage calculation timestamp */
+  lastCalculated: Date;
+}
+
+/**
+ * User notification preferences
+ * @interface NotificationPreferences
+ */
+export interface NotificationPreferences {
+  /** Enable email notifications */
+  email: boolean;
+
+  /** Enable push notifications */
+  push: boolean;
+
+  /** Enable desktop notifications */
+  desktop: boolean;
+
+  /** Types of email notifications to receive */
+  emailTypes: string[];
+
+  /** Notification channels configuration */
+  channels: {
+    security?: boolean;
+    updates?: boolean;
+    marketing?: boolean;
+  };
+
+  /** Security alert preferences */
+  securityAlerts?: {
+    loginAttempts: boolean;
+    deviceChanges: boolean;
+    criticalActions: boolean;
+    storageAlerts: boolean;
+  };
+
+  /** Notification schedule */
+  schedule: {
+    quietHours: {
+      enabled: boolean;
+      start?: string;
+      end?: string;
+    };
+    timezone: string;
+    frequency: 'immediate' | 'hourly' | 'daily' | 'weekly';
+  };
+}
+
+/**
+ * User display preferences
+ * @interface DisplayPreferences
+ */
+export interface DisplayPreferences {
+  /** Theme preference */
+  theme: ThemeType;
+
+  /** Default view mode */
+  defaultView: ViewMode;
+
+  /** Number of items to display per page */
+  itemsPerPage: number;
+
+  /** Default sorting configuration */
+  defaultSort: {
+    field: string;
+    order: SortOrder;
+  };
+
+  /** File view preferences */
+  fileView: {
+    defaultView: 'list' | 'grid' | 'details';
+    showThumbnails: boolean;
+    showPreview: boolean;
+    sortBy: string;
+    groupBy?: string;
+  };
+
+  /** Dashboard preferences */
+  dashboard: {
+    showQuickAccess: boolean;
+    showStats: boolean;
+    showActivity: boolean;
+    customWidgets: string[];
+  };
+}
+
+/**
+ * User localization preferences
+ * @interface LocalizationPreferences
+ */
+export interface LocalizationPreferences {
+  /** Language code (e.g., en, fr) */
+  language: string;
+
+  /** Timezone */
+  timezone: string;
+
+  /** Date format */
+  dateFormat: string;
+
+  /** Time format (12h/24h) */
+  timeFormat: '12h' | '24h';
+
+  /** Currency code */
+  currency: string;
 }

@@ -1,6 +1,6 @@
-import { PrivacyResourceStatus, ResourceStatus } from './common.types';
+import { PrivacyResourceStatus, ResourceStatus } from '../filesystem/common.types';
 import { SortOrder } from '../common.types';
-import { IFile } from './file.types';
+import { IFile } from '../filesystem/file.types';
 
 // Query Parameters
 export interface FileQueryParams {
@@ -84,7 +84,7 @@ export interface FileListResponse {
   total: number;
   page: number;
   limit: number;
-  hasMore: boolean;
+  hasMore?: boolean;
   summary?: {
     totalSize: number;
     byCategory?: Record<string, number>;

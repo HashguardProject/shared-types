@@ -1,6 +1,6 @@
 import { SortOrder } from '../common.types';
 import { PaginatedResponse } from '../response.types';
-import { PaginationQueryParams, PrivacyResourceStatus, ResourceStatus } from './common.types';
+import { PaginationQueryParams, PrivacyResourceStatus, ResourceStatus } from '../filesystem/common.types';
 
 // Enums
 export enum FolderSortField {

@@ -42,3 +42,11 @@ export enum AuthState {
   SESSION_EXPIRED = 'session_expired',
   SESSION_TERMINATED = 'session_terminated',
 }
+
+export enum TokenState {
+  VALID = 'valid',
+  EXPIRED = 'expired',
+  REFRESHING = 'refreshing',
+  NONE = 'none',
+  ERROR = 'error',
+}
