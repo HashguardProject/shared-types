@@ -59,7 +59,6 @@ export interface ApiResponseMeta {
   /** Last modified timestamp */
   lastModified?: string;
 
-
   /** Development-only metadata */
   dev?: DevMetadata;
 }
