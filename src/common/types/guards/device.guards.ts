@@ -65,7 +65,7 @@ export const isDeviceInfo = (value: unknown): value is DeviceInfo => {
  * Utility function to safely parse DeviceInfo
  * @param value - Value to parse
  */
-export const parseDeviceInfo = (value: unknown): DeviceInfo | null => {
-  const result = DeviceInfoSchema.safeParse(value);
-  return result.success ? result.data : null;
-};
+// export const parseDeviceInfo = (value: unknown): DeviceInfo | null => {
+//   const result = DeviceInfoSchema.safeParse(value);
+//   return result.success ? result.data : null;
+// };
