@@ -16,6 +16,7 @@ import {
 } from '../objects/user.types';
 import { RiskSeverity } from '../security/security.types';
 import { VerificationStatus } from '../objects/session.types';
+import { SecurityEventType } from '../security/security-events.types';
 
 export interface CreateUserRequest {
   /** User pseudo (username) - must be between 3 and 50 characters */
@@ -103,7 +104,7 @@ export interface SecurityEventResponse {
   timestamp: Date;
 
   /** Type of security event */
-  eventType: string;
+  eventType: SecurityEventType;
 
   /** Whether the event was successful */
   success: boolean;

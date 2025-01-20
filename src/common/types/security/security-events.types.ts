@@ -28,6 +28,7 @@ export enum SecurityEventType {
   AUTH_MFA_CHALLENGED = 'auth.mfa.challenged',
   AUTH_MFA_SUCCEEDED = 'auth.mfa.succeeded',
   AUTH_MFA_FAILED = 'auth.mfa.failed',
+  AUTH_LOGIN_ATTEMPT = 'auth.login.attempt',
 
   // Session Events
   SESSION_CREATED = 'session.created',
