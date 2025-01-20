@@ -2,7 +2,6 @@ import { PrivacyResourceStatus, ResourceStatus } from './common.types';
 import { SortOrder } from '../common.types';
 import { IFile } from './file.types';
 
-
 // Query Parameters
 export interface FileQueryParams {
   page?: number;
