@@ -55,7 +55,7 @@ export const parseSessionMetadata = (value: unknown): SessionMetadata | null => 
  * Utility function to safely parse SessionSecurityContext
  * @param value - Value to parse
  */
-export const parseSessionSecurityContext = (value: unknown): SessionSecurityContext | null => {
-  const result = SessionSecurityContextSchema.safeParse(value);
-  return result.success ? result.data : null;
-};
+// export const parseSessionSecurityContext = (value: unknown): SessionSecurityContext | null => {
+//   const result = SessionSecurityContextSchema.safeParse(value);
+//   return result.success ? result.data : null;
+// };
