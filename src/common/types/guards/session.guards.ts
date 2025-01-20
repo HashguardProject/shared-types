@@ -46,10 +46,10 @@ export const isBrowserInfo = (value: unknown): value is BrowserInfo => {
  * Utility function to safely parse SessionMetadata
  * @param value - Value to parse
  */
-export const parseSessionMetadata = (value: unknown): SessionMetadata | null => {
-  const result = SessionMetadataSchema.safeParse(value);
-  return result.success ? result.data : null;
-};
+// export const parseSessionMetadata = (value: unknown): SessionMetadata | null => {
+//   const result = SessionMetadataSchema.safeParse(value);
+//   return result.success ? result.data : null;
+// };
 
 /**
  * Utility function to safely parse SessionSecurityContext

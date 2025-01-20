@@ -15,6 +15,7 @@ export interface ApiResponse<T> {
   meta: ApiResponseMeta;
   /** HATEOAS links */
   links?: ApiLinks;
+
   /** Related resources */
   included?: Record<string, unknown>[];
 }
@@ -30,6 +31,9 @@ export interface ApiResponseMeta {
   timestamp: string;
   /** Unique request identifier */
   requestId?: string;
+
+  /** Whether the response was cached */
+  cached?: boolean;
 
   /** Response time in milliseconds */
   responseTime?: number;

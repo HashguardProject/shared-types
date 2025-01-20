@@ -38,6 +38,7 @@ export enum Platform {
   ANDROID = 'android',
   WEB = 'web',
   DESKTOP = 'desktop',
+  OTHER = 'other',
 }
 
 export enum Browser {
