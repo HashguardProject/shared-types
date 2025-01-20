@@ -1,6 +1,6 @@
+import { SessionSecurityContext } from './objects/session.types';
 import { SecurityRecommendation } from './security/security-assessment.types';
 import { RiskSeverity } from './security/security.types';
-import { SessionSecurityContext } from './objects/session.types';
 import { SecurityError } from './security/validation.types';
 
 /**
@@ -211,4 +211,56 @@ export interface AuthenticationResponse {
     /** Email verification status */
     isEmailVerified: boolean;
   };
+}
+
+
+/**
+ * List response wrapper with filtering info
+ */
+export interface ApiListResponse<T> extends ApiResponse<T[]> {
+  data: T[];
+  meta: ApiResponseMeta & {
+    total: number;
+    filtered?: number;
+    // Only include relevant stats
+    stats?: {
+      totalCount: number;
+      filteredCount?: number;
+      lastUpdated?: string;
+    };
+  };
+}
+
+/**
+ * Paginated response wrapper
+ */
+export interface PaginatedResponse<T> extends ApiResponse<T[]> {
+  data: T[];
+  meta: ApiResponseMeta & PaginationMeta;
+}
+
+
+
+/**
+ * Success response with no data
+ */
+export interface ApiSuccessResponse extends ApiResponse<null> {
+  data: null;
+  meta: ApiResponseMeta & {
+    success: true;
+    operation?: string;
+    affectedResources?: number;
+  };
+}
+
+/**
+ * Response metadata decorator
+ */
+export interface ResponseMetadataOptions {
+  includeDebug?: boolean;
+  cacheable: boolean;
+  paginated?: boolean;
+  deprecated?: boolean;
+  deprecationMessage?: string;
+  maxAge?: number;
 }

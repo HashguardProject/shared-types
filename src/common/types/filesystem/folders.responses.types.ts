@@ -1,5 +1,6 @@
 import { SortOrder } from '../common.types';
-import { PrivacyResourceStatus, ResourceStatus } from './common.types';
+import { PaginatedResponse } from '../response.types';
+import { PaginationQueryParams, PrivacyResourceStatus, ResourceStatus } from './common.types';
 
 // Enums
 export enum FolderSortField {
@@ -19,9 +20,7 @@ export enum BulkOperationType {
 }
 
 // Query Parameters
-export interface FolderQueryParams {
-  page?: number;
-  limit?: number;
+export interface FolderQueryParams extends PaginationQueryParams {
   parentFolderId?: string;
   includeDeleted?: boolean;
   isFavorite?: boolean;
@@ -103,12 +102,7 @@ export interface FolderResponse {
   stats: FolderStats;
 }
 
-export interface FolderListResponse {
-  data: FolderResponse[];
-  total: number;
-  page: number;
-  limit: number;
-}
+export interface FolderListResponse extends PaginatedResponse<FolderResponse> {}
 
 export interface FolderTreeNode {
   id: string;

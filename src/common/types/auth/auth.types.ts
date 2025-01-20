@@ -35,3 +35,10 @@ export enum TokenType {
   CSRF_TOKEN = 'csrf_token',
   MAGIC_LINK = 'magic_link',
 }
+
+export enum AuthState {
+  LOGGED_IN = 'logged_in',
+  LOGGED_OUT = 'logged_out',
+  SESSION_EXPIRED = 'session_expired',
+  SESSION_TERMINATED = 'session_terminated',
+}

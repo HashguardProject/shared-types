@@ -9,3 +9,8 @@ export enum PrivacyResourceStatus {
   PUBLIC = 'public',
   SHARED = 'shared',
 }
+
+export interface PaginationQueryParams {
+  page?: number;
+  limit?: number;
+}

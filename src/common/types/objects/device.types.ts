@@ -33,6 +33,23 @@ export enum DeviceType {
   UNKNOWN = 'unknown',
 }
 
+export enum Platform {
+  IOS = 'ios',
+  ANDROID = 'android',
+  WEB = 'web',
+  DESKTOP = 'desktop',
+}
+
+export enum Browser {
+  CHROME = 'chrome',
+  EDGE = 'edge',
+  FIREFOX = 'firefox',
+  SAFARI = 'safari',
+  OPERA = 'opera',
+  OTHER = 'other',
+}
+
+
 /**
  * Hardware-specific device information
  * @interface DeviceHardwareInfo
@@ -41,7 +58,7 @@ export interface DeviceHardwareInfo {
   /** Device form factor type */
   type: DeviceType;
   /** Platform identifier (e.g., "Win32", "MacIntel") */
-  platform: string;
+  platform: Platform;
   /** Operating system information */
   os: {
     /** OS name */
