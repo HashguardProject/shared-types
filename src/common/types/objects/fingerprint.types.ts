@@ -1,7 +1,6 @@
 // fingerprint.types.ts
 import { GeoLocation } from '../geolocation.types';
 import { RiskSeverity } from '../security/security.types';
-import { OperatingSystem } from './device.types';
 
 // Enhanced hardware components
 export interface HardwareComponents {
