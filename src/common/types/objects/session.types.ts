@@ -127,6 +127,14 @@ export interface SessionVerification {
   lastAttempt?: Date;
 }
 
+export interface DeviceContext {
+  id?: string;
+  browserId?: string;
+  info?: DeviceInfo;
+  trustLevel?: DeviceTrustLevel;
+  firstSeen: Date;
+  lastVerified: Date;
+}
 /**
  * Represents a user session
  * @interface Session
@@ -137,20 +145,7 @@ export interface Session {
   /** Associated user ID */
   userId: string;
   /** Device information */
-  device: {
-    /** Device identifier */
-    id?: string;
-    /** Browser identifier */
-    browserId?: string;
-    /** Device details */
-    info?: DeviceInfo;
-    /** Trust level of device */
-    trustLevel?: DeviceTrustLevel;
-    /** When device was first seen */
-    firstSeen: Date;
-    /** When device was last verified */
-    lastVerified: Date;
-  };
+  device: DeviceContext;
   /** Session risk level */
   riskLevel: RiskSeverity;
   /** Current session state */
