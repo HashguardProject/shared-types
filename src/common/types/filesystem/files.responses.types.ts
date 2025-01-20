@@ -1,6 +1,6 @@
-import { ResourceStatus } from "./common.types";
-import { SortOrder } from "../common.types";
-import { IFile } from "./file.types";
+import { ResourceStatus } from './common.types';
+import { SortOrder } from '../common.types';
+import { IFile } from './file.types';
 
 // Query Parameters
 export interface FileQueryParams {
@@ -77,8 +77,6 @@ export interface FileVersionList {
   total: number;
   currentVersion: number;
 }
-
-
 
 export interface FileListResponse {
   data: IFile[];

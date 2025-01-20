@@ -1,5 +1,5 @@
-import { SortOrder } from "../common.types";
-import { PrivacyResourceStatus, ResourceStatus } from "./common.types";
+import { SortOrder } from '../common.types';
+import { PrivacyResourceStatus, ResourceStatus } from './common.types';
 
 // Enums
 export enum FolderSortField {
