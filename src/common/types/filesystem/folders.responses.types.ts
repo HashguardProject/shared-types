@@ -53,6 +53,7 @@ export interface UpdateFolderRequest {
   tags?: string[];
   shared?: boolean;
   public?: boolean;
+  status?: ResourceStatus;
   sharedWith?: string[];
 }
 
