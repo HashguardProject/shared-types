@@ -19,7 +19,7 @@ export interface IFolder {
   lastOpened: Date;
   lastModifiedBy: string | null; // ObjectId as string
   createdBy: string; // ObjectId as string
-  parentFolderId: string | null; // ObjectId as string
+  parentFolderId?: string | null; // ObjectId as string
   privacyStatus: PrivacyResourceStatus;
   color: string;
   icon?: string;

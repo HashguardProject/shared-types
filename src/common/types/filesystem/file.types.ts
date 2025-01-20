@@ -20,7 +20,7 @@ export interface IFile {
   createdBy: string; // ObjectId as string
   name: string;
   originalName: string;
-  parentFolderId: string | null; // ObjectId as string
+  parentFolderId?: string | null; // ObjectId as string
   CID: string;
   extension: string;
   size: number;
