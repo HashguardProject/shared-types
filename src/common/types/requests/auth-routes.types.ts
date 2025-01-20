@@ -48,7 +48,7 @@ export interface AuthTokenResponse {
     expiresAt: string;
   };
   user: {
-    _id: string;
+    id: string;
     email: string;
     isEmailVerified: boolean;
   };

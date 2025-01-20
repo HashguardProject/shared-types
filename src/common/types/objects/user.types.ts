@@ -35,7 +35,7 @@ export enum UserRole {
 
 // user.types.ts
 export interface User {
-  _id: string;
+  id: string;
   email: string;
   isEmailVerified: boolean;
   createdAt: Date;

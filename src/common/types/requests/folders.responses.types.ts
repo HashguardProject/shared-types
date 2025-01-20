@@ -89,7 +89,7 @@ export interface FolderStats {
 }
 
 export interface FolderResponse {
-  _id: string;
+  id: string;
   name: string;
   description?: string;
   color?: string;
