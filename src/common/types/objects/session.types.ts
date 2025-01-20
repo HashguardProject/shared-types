@@ -45,7 +45,7 @@ export interface SessionSecurityContext {
   /** Timestamp of the last security verification */
   lastVerification?: Date;
   /** Method used for the last verification */
-  verificationMethod?: string;
+  verificationMethod?: VerificationMethod;
 }
 
 /**
@@ -59,10 +59,20 @@ export enum DeviceTrustLevel {
   NEW = 'new',
   /** Device has been seen before */
   RECOGNIZED = 'recognized',
+  /** Device has been blocked */
+  BLOCKED = 'BLOCKED',
+  /** Device has been revoked */
+  REVOKED = 'REVOKED',
   /** Device has passed basic trust checks */
   TRUSTED = 'trusted',
   /** Device has passed advanced verification */
   VERIFIED = 'verified',
+  /** Low risk */
+  LOW = 'LOW',
+  /** Medium risk */
+  MEDIUM = 'MEDIUM',
+  /** High risk */
+  HIGH = 'HIGH',
 }
 
 /**
