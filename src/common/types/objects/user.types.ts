@@ -181,7 +181,6 @@ export interface UserProfile {
   /** User's storage usage statistics */
   storage: UserStorageStats;
 
-
   /** Timestamp of last login */
   lastLogin?: Date;
 
