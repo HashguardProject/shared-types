@@ -258,7 +258,6 @@ export interface UserPreferencesResponse {
   accessibility: AccessibilityPreferences;
 }
 
-
 export interface ActivityEntry {
   /** Activity timestamp */
   timestamp: Date;
