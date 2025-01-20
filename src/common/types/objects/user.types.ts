@@ -39,7 +39,7 @@ export interface User {
   email: string;
   isEmailVerified: boolean;
   createdAt: Date;
-  pushSubscription: PushSubscription;
+  pushSubscription?: PushSubscription;
   updatedAt: Date;
   pseudo: string;
   walletAddress?: string;
@@ -97,9 +97,10 @@ export interface LoginAttempts {
 
 export interface UserPreferences {
   notifications: NotificationPreferences;
+  display: DisplayPreferences;
+  localization: LocalizationPreferences;
   theme: 'light' | 'dark' | 'system';
   language: string;
-  timezone: string;
 }
 
 export interface UserStorage {
@@ -226,6 +227,16 @@ export interface ContactInfo {
   };
 }
 
+export interface NotificationSchedule {
+  quietHours: {
+    enabled: boolean;
+    start?: string;
+    end?: string;
+  };
+  timezone: string;
+  frequency: 'immediate' | 'hourly' | 'daily' | 'weekly';
+}
+
 /**
  * User notification preferences
  * @interface NotificationPreferences
@@ -259,15 +270,7 @@ export interface NotificationPreferences {
   };
 
   /** Notification schedule */
-  schedule: {
-    quietHours: {
-      enabled: boolean;
-      start?: string;
-      end?: string;
-    };
-    timezone: string;
-    frequency: 'immediate' | 'hourly' | 'daily' | 'weekly';
-  };
+  schedule: NotificationSchedule;
 }
 
 /**

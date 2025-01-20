@@ -1,5 +1,5 @@
 import { Fingerprint } from '../objects/fingerprint.types';
-import { DeviceInfo } from '../objects/device.types';
+import { DeviceInfo, Platform } from '../objects/device.types';
 import { User } from '../objects/user.types';
 import { Session, SessionStatus, VerificationStatus } from '../objects/session.types';
 import { RiskSeverity, SecurityFlag } from '../security/security.types';
@@ -34,7 +34,7 @@ export interface MagicLinkResponse {
 export interface MagicLinkVerifyDto {
   token: string;
   fingerprint: Fingerprint;
-  platform?: string;
+  platform?: Platform;
 }
 
 export interface TokenRotationDto {
