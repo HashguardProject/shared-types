@@ -59,8 +59,6 @@ export interface ApiResponseMeta {
   /** Last modified timestamp */
   lastModified?: string;
 
-  /** Pagination information */
-  pagination?: PaginationMeta;
 
   /** Development-only metadata */
   dev?: DevMetadata;
@@ -238,10 +236,7 @@ export interface ApiListResponse<T> extends ApiResponse<T[]> {
  * Paginated response wrapper
  */
 export interface PaginatedResponse<T> extends ApiResponse<T[]> {
-  data: T[];
-  meta: ApiResponseMeta & {
-    pagination: NonNullable<ApiResponseMeta['pagination']>;
-  };
+  pagination: PaginationMeta;
 }
 
 /**
