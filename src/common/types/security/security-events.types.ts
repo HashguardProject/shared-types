@@ -1,5 +1,5 @@
 import { RiskSeverity } from './security.types';
-
+import { GeoLocation } from '../geolocation.types';
 // security-events.types.ts
 export interface SecurityEvent {
   type: SecurityEventType;
@@ -9,11 +9,13 @@ export interface SecurityEvent {
     sessionId?: string;
     userId?: string;
     deviceId?: string;
-    location?: string;
+    location?: GeoLocation;
     userAgent?: string;
-    ip?: string;
   };
-  context?: Record<string, unknown>;
+  context?: {
+    success: boolean;
+    [key: string]: unknown;
+  };
 }
 
 export enum SecurityEventType {
