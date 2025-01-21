@@ -1,4 +1,8 @@
-import { PaginationQueryParams, PrivacyResourceStatus, ResourceStatus } from '../filesystem/common.types';
+import {
+  PaginationQueryParams,
+  PrivacyResourceStatus,
+  ResourceStatus,
+} from '../filesystem/common.types';
 import { SortOrder } from '../common.types';
 import { IFile } from '../filesystem/file.types';
 
