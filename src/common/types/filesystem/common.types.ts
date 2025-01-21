@@ -14,3 +14,9 @@ export interface PaginationQueryParams {
   page?: number;
   limit?: number;
 }
+
+export interface Schema {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+}

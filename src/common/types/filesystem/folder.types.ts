@@ -1,4 +1,4 @@
-import { ResourceStatus, PrivacyResourceStatus } from './common.types';
+import { ResourceStatus, PrivacyResourceStatus, Schema } from './common.types';
 
 export interface IFolderStats {
   immediateChildrenCount: number;
@@ -13,8 +13,7 @@ export interface IFolderStats {
   maxDepth: number;
 }
 
-export interface IFolder {
-  id: string; // MongoDB _id
+export interface IFolder extends Schema {
   name: string;
   lastOpened?: Date;
   lastModifiedBy?: string | null; // ObjectId as string

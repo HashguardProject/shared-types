@@ -1,4 +1,4 @@
-import { ResourceStatus } from './common.types';
+import { ResourceStatus, Schema } from './common.types';
 
 export interface IVersion {
   CID: string;
@@ -15,17 +15,13 @@ export interface IFileMetadata {
   customProperties: Record<string, unknown>;
 }
 
-export interface IFile {
-  id: string; // MongoDB _id
-  createdBy: string; // ObjectId as string
+export interface IFile extends Schema {
   name: string;
   originalName: string;
   parentFolderId?: string | null; // ObjectId as string
   CID: string;
   extension: string;
   size: number;
-  createdAt: Date;
-  updatedAt: Date;
   lastModifiedAt: Date;
   lastModifiedBy: string; // ObjectId as string
   mimeType: string;
