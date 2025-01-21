@@ -1,11 +1,9 @@
-import { PrivacyResourceStatus, ResourceStatus } from '../filesystem/common.types';
+import { PaginationQueryParams, PrivacyResourceStatus, ResourceStatus } from '../filesystem/common.types';
 import { SortOrder } from '../common.types';
 import { IFile } from '../filesystem/file.types';
 
 // Query Parameters
-export interface FileQueryParams {
-  page?: number;
-  limit?: number;
+export interface FileQueryParams extends PaginationQueryParams {
   parentFolderId?: string | null;
   search?: string;
   status?: ResourceStatus;

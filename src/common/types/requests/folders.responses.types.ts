@@ -25,17 +25,36 @@ export enum BulkOperationType {
 
 // Query Parameters
 export interface FolderQueryParams extends PaginationQueryParams {
-  parentFolderId?: string;
-  includeDeleted?: boolean;
-  isFavorite?: boolean;
+  // Basic filters (aligned with FileQueryParams)
+  parentFolderId?: string | null;
+  search?: string; // Changed from searchTerm to match FileQueryParams
+  status?: ResourceStatus;
   sortBy?: FolderSortField;
   sortOrder?: SortOrder;
-  searchTerm?: string;
-  tags?: string[];
-  dateFrom?: string;
-  dateTo?: string;
+
+  // User related (added to match FileQueryParams)
+  createdBy?: string;
+  lastModifiedBy?: string;
+
+  // Privacy and status (added to match FileQueryParams)
+  privacyStatus?: PrivacyResourceStatus;
+
+  // Size filters (already existed, keeping them)
   minSize?: number;
   maxSize?: number;
+
+  // Date filters (renamed to match FileQueryParams pattern)
+  createdAfter?: string; // Changed from dateFrom
+  createdBefore?: string; // Changed from dateTo
+  lastAccessedAfter?: string; // Added to match FileQueryParams
+  lastAccessedBefore?: string; // Added to match FileQueryParams
+
+  // Tags and favorites (already existed, keeping them)
+  tags?: string[];
+  isFavorite?: boolean;
+
+  // Removed includeDeleted as it's covered by status field
+  // Additional folder-specific fields can be added here if needed
 }
 
 // Request Bodies

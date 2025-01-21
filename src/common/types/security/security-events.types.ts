@@ -76,6 +76,10 @@ export enum SecurityEventType {
   TOKEN_UPDATED = 'token.updated',
   TOKEN_ROTATED = 'token.rotated',
   TOKEN_INVALIDATED = 'token.invalidated',
+  TOKEN_EXPIRED = 'token.expired',
+  CSRF_TOKEN_UPDATED = 'csrf.token.updated',
+  CSRF_TOKEN_INVALIDATED = 'csrf.token.invalidated',
+  CSRF_TOKEN_FAILURE = 'csrf.token.rotated',
 
   // Behavioral Events
   BEHAVIOR_UNUSUAL_ACTIVITY = 'behavior.unusual.activity',
