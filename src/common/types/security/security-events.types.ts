@@ -39,6 +39,7 @@ export enum SecurityEventType {
   SESSION_HIJACKING_ATTEMPT = 'session.hijacking.attempt',
   SESSION_CONCURRENT = 'session.concurrent',
   SESSION_UPDATED = 'session.updated',
+  SESSION_EXPIRING_SOON = 'session.expiring.soon',
 
   // Security Events
   SECURITY_ASSESSMENT_UPDATED = 'security.assessment.updated',
