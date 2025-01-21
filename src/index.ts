@@ -3,6 +3,8 @@ export * from './common/types/objects/user.types';
 export * from './common/types/objects/session.types';
 export * from './common/types/objects/fingerprint.types';
 export * from './common/types/objects/device.types';
+export * from './common/types/objects/contact.types';
+export * from './common/types/objects/shared-file.types';
 
 //Security types
 export * from './common/types/security/security-assessment.types';
