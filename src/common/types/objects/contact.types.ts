@@ -1,4 +1,4 @@
-import { Schema } from "../filesystem/common.types";
+import { Schema } from '../filesystem/common.types';
 
 export interface Contact extends Schema {
   type: 'ethereum' | 'userId';
@@ -7,7 +7,6 @@ export interface Contact extends Schema {
   pseudo?: string;
   lastInteraction?: Date;
 }
-
 
 export interface Contacts extends Schema {
   userId: string;
