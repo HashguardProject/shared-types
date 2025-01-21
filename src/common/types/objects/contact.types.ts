@@ -5,7 +5,6 @@ export enum ContactType {
   USER_ID = 'userId',
 }
 
-
 export interface Contact {
   type: ContactType;
   address?: string;
