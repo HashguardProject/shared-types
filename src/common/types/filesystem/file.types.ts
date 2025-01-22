@@ -1,4 +1,4 @@
-import { ResourceStatus, Schema } from './common.types';
+import { PrivacyResourceStatus, ResourceStatus, Schema } from './common.types';
 
 export interface IVersion {
   CID: string;
@@ -25,6 +25,7 @@ export interface IFile extends Schema {
   lastModifiedAt: Date;
   lastModifiedBy: string; // ObjectId as string
   mimeType: string;
+  privacyStatus: PrivacyResourceStatus;
   contentCategory: 'image' | 'video' | 'audio' | 'document' | 'other';
   status: ResourceStatus;
   deletedAt?: Date;
