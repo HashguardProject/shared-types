@@ -42,6 +42,8 @@ export interface User {
   pushSubscription?: PushSubscription;
   updatedAt: Date;
   pseudo: string;
+  hashPassword?: string;
+  secondKeyPart?: string;
   walletAddress?: string;
   storageLimit: number;
   storageUsed: number;
