@@ -49,8 +49,8 @@ export interface AuthTokenResponse {
   };
   user: {
     id: string;
-    email: string;
-    isEmailVerified: boolean;
+    email?: string;
+    isEmailVerified?: boolean;
   };
   access_token: string;
   token_type: 'Bearer';
