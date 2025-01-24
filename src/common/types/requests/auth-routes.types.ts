@@ -49,6 +49,7 @@ export interface AuthTokenResponse {
   };
   user: {
     id: string;
+    isNewUser: boolean;
     email?: string;
     isEmailVerified?: boolean;
   };
