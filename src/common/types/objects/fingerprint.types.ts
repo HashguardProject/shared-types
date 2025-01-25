@@ -1,6 +1,7 @@
 // fingerprint.types.ts
 import { GeoLocation } from '../geolocation.types';
 import { RiskSeverity } from '../security/security.types';
+import { DeviceType } from './device.types';
 
 // Enhanced hardware components
 export interface HardwareComponents {
@@ -31,7 +32,7 @@ export interface SystemComponents {
   language: string;
   timezone: string;
   timezoneOffset?: number;
-  deviceType?: 'mobile' | 'tablet' | 'desktop' | 'other';
+  deviceType?: DeviceType;
 }
 
 // Enhanced browser components
