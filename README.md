@@ -157,6 +157,8 @@ npm run build
 4. Publish to npm registry
 
 npm publish
+Or public publish:
+npm publish --access public
 
 
 5. Push changes and tags
