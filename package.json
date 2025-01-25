@@ -1,6 +1,6 @@
 {
   "name": "@hashguardproject/shared-types",
-  "version": "1.6.9",
+  "version": "1.6.10",
   "description": "Shared TypeScript types for Hashguard security system",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
