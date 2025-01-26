@@ -40,6 +40,7 @@ export * from './common/types/guards/index';
 export * from './common/types/auth/auth.types';
 export * from './common/types/requests/auth-routes.types';
 export * from './common/types/auth/oauth2.types';
+export * from './common/types/auth/passport.types';
 
 // Geolocation
 export * from './common/types/geolocation.types';
