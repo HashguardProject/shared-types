@@ -38,7 +38,7 @@ export enum TokenType {
   REFRESH_TOKEN = 'refresh_token',
   CSRF_TOKEN = 'csrf_token',
   MAGIC_LINK = 'magic_link',
-  ID_TOKEN = 'id_token'
+  ID_TOKEN = 'id_token',
 }
 
 export enum AuthState {
@@ -46,7 +46,7 @@ export enum AuthState {
   LOGGED_OUT = 'logged_out',
   SESSION_EXPIRED = 'session_expired',
   SESSION_TERMINATED = 'session_terminated',
-  PENDING_VERIFICATION = 'pending_verification'
+  PENDING_VERIFICATION = 'pending_verification',
 }
 
 export enum TokenState {
@@ -55,7 +55,7 @@ export enum TokenState {
   REFRESHING = 'refreshing',
   NONE = 'none',
   ERROR = 'error',
-  REVOKED = 'revoked'
+  REVOKED = 'revoked',
 }
 
 export interface TokenRotationOptions {

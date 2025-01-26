@@ -59,7 +59,7 @@ export interface AuthenticatedUser {
 export type PassportVerifyCallback = (
   error: any,
   user?: AuthenticatedUser | false,
-  info?: { message: string }
+  info?: { message: string },
 ) => void;
 
 /**
@@ -68,5 +68,5 @@ export type PassportVerifyCallback = (
 export type PassportValidateFunction = (
   req: Request,
   payload: JwtPayload,
-  done: PassportVerifyCallback
-) => Promise<void>; 
+  done: PassportVerifyCallback,
+) => Promise<void>;
