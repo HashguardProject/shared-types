@@ -6,7 +6,6 @@ import {
   ApiLinks,
   ErrorResponse,
   SecurityResponse,
-
 } from '../response.types';
 import {
   ApiResponseSchema,

@@ -161,5 +161,4 @@ describe('Response Types', () => {
       expect(isSecurityResponse(responseWithError, DataSchema)).toBe(true);
     });
   });
-
 });
