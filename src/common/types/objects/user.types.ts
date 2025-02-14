@@ -269,7 +269,7 @@ export interface NotificationPreferences {
   };
 
   /** Notification schedule */
-  schedule: NotificationSchedule;
+  // schedule: NotificationSchedule;
 }
 
 /**

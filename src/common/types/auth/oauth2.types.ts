@@ -9,6 +9,10 @@ export enum OAuth2ErrorCode {
   UNSUPPORTED_RESPONSE_TYPE = 'unsupported_response_type',
   SERVER_ERROR = 'server_error',
   TEMPORARILY_UNAVAILABLE = 'temporarily_unavailable',
+  TOKEN_REFRESH_FAILED = 'token_refresh_failed',
+  INVALID_SESSION = 'invalid_session',
+  INVALID_DEVICE = 'invalid_device',
+  INVALID_USER = 'invalid_user',
 }
 
 export interface OAuth2Error {
