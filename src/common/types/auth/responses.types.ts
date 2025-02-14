@@ -93,4 +93,11 @@ export interface CurrentUserResponse {
     timestamp: string;
     details: Record<string, any>;
   }>;
+  security: {
+    isValid: boolean;
+    riskLevel: RiskSeverity;
+    flags: SecurityFlag[];
+    requiresVerification: boolean;
+    trustScore: number;
+  };
 }
