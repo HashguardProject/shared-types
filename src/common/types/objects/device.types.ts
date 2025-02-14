@@ -121,10 +121,11 @@ export interface DeviceNetworkInfo {
 }
 
 export interface DeviceInfo {
-  name?: string;
-  userAgent: string;
+  id?: string;
+  trustLevel: DeviceTrustLevel;
   platform: Platform;
   type: DeviceType;
+  lastVerified: string;
 }
 
 /**
