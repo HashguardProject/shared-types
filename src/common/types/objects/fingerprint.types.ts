@@ -65,6 +65,9 @@ export interface Fingerprint {
     source?: string;
     headerValidation?: boolean;
     validationDuration?: number;
+    deviceId?: string;
+    browserId?: string;
+    sessionId?: string;
   };
   timestamp: number;
   confidence: number;

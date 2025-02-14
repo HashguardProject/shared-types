@@ -14,10 +14,10 @@ export interface SessionInfo {
     type: DeviceType;
     platform: Platform;
     trustLevel: DeviceTrustLevel;
-    lastVerified: Date;
+    lastVerified: string;
   };
-  expiresAt: Date;
-  lastActivity: Date;
+  expiresAt: string;
+  lastActivity: string;
 }
 
 // API Response types (what gets sent to the client)

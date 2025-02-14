@@ -11,6 +11,7 @@ export interface GeoLocation {
   timestamp?: Date;
   postalCode?: string;
   accuracy?: number;
+  source?: string;
 }
 
 export interface GeoLocationResponse {
