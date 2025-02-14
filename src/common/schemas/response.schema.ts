@@ -95,24 +95,6 @@ export const SecurityResponseSchema = <T extends z.ZodType>(dataSchema: T) =>
       .optional(),
   });
 
-export const AuthenticationResponseSchema = z.object({
-  tokens: z.object({
-    accessToken: z.string(),
-    refreshToken: z.string().optional(),
-    csrfToken: z.string().optional(),
-  }),
-  session: z.object({
-    id: z.string().uuid(),
-    expiresAt: z.date(),
-    security: SessionSecurityContextSchema,
-  }),
-  user: z.object({
-    id: z.string().uuid(),
-    email: z.string().email(),
-    isEmailVerified: z.boolean(),
-  }),
-});
-
 export const ApiResponseSchema = <T extends z.ZodType>(dataSchema: T) =>
   z.object({
     data: dataSchema,

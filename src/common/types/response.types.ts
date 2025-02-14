@@ -1,4 +1,3 @@
-import { SessionSecurityContext } from './objects/session.types';
 import { SecurityRecommendation } from './security/security-assessment.types';
 import { RiskSeverity } from './security/security.types';
 import { SecurityError } from './security/validation.types';
@@ -179,40 +178,6 @@ export interface SecurityResponse<T> {
     requiresAction: boolean;
     /** Security recommendations if any */
     recommendations?: SecurityRecommendation[];
-  };
-}
-
-/**
- * Authentication response structure
- * @interface AuthenticationResponse
- */
-export interface AuthenticationResponse {
-  /** Authentication tokens */
-  tokens: {
-    /** JWT access token */
-    accessToken: string;
-    /** JWT refresh token */
-    refreshToken?: string;
-    /** CSRF token */
-    csrfToken?: string;
-  };
-  /** Session information */
-  session: {
-    /** Session identifier */
-    id: string;
-    /** Session expiration timestamp */
-    expiresAt: Date;
-    /** Session security context */
-    security: SessionSecurityContext;
-  };
-  /** User information */
-  user: {
-    /** User identifier */
-    id: string;
-    /** User email */
-    email: string;
-    /** Email verification status */
-    isEmailVerified: boolean;
   };
 }
 

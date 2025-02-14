@@ -1,5 +1,4 @@
 import { DeviceInfo } from './device.types';
-import { RiskSeverity, SecurityFlag } from '../security/security.types';
 import { GeoLocation, VerificationMethod } from '../../..';
 import { DeviceType, Platform, DeviceTrustLevel } from './device.types';
 

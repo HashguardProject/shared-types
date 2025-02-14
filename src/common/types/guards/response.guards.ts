@@ -6,7 +6,7 @@ import {
   ApiLinks,
   ErrorResponse,
   SecurityResponse,
-  AuthenticationResponse,
+
 } from '../response.types';
 import {
   ApiResponseSchema,
@@ -16,7 +16,6 @@ import {
   ApiLinksSchema,
   ErrorResponseSchema,
   SecurityResponseSchema,
-  AuthenticationResponseSchema,
 } from '../../schemas/response.schema';
 import { z } from 'zod';
 
@@ -70,14 +69,6 @@ export const isSecurityResponse = <T>(
   dataSchema: z.ZodType<T>,
 ): value is SecurityResponse<T> => {
   return SecurityResponseSchema(dataSchema).safeParse(value).success;
-};
-
-/**
- * Type guard for AuthenticationResponse
- * @param value - Value to check
- */
-export const isAuthenticationResponse = (value: unknown): value is AuthenticationResponse => {
-  return AuthenticationResponseSchema.safeParse(value).success;
 };
 
 /**

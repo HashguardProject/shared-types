@@ -3,13 +3,11 @@ import {
   isApiResponseMeta,
   isPaginationMeta,
   isSecurityResponse,
-  isAuthenticationResponse,
   isApiResponse,
   parseApiResponse,
   parseSecurityResponse,
 } from '../guards/response.guards';
 import { RiskSeverity } from '../security/security.types';
-import { DeviceTrustLevel } from '../objects/session.types';
 
 describe('Response Types', () => {
   describe('ApiResponseMeta', () => {
@@ -164,47 +162,4 @@ describe('Response Types', () => {
     });
   });
 
-  describe('AuthenticationResponse', () => {
-    it('should validate correct authentication response', () => {
-      const validResponse = {
-        tokens: {
-          accessToken: 'valid-token',
-          refreshToken: 'valid-refresh-token',
-        },
-        session: {
-          id: '123e4567-e89b-12d3-a456-426614174000',
-          expiresAt: new Date(),
-          security: {
-            deviceId: '123e4567-e89b-12d3-a456-426614174000',
-            browserFingerprint: '0123456789abcdef0123456789abcdef',
-            trustLevel: DeviceTrustLevel.TRUSTED,
-            riskFlags: [],
-          },
-        },
-        user: {
-          id: '123e4567-e89b-12d3-a456-426614174000',
-          email: 'user@example.com',
-          isEmailVerified: true,
-        },
-      };
-
-      expect(isAuthenticationResponse(validResponse)).toBe(true);
-    });
-
-    it('should reject invalid authentication response', () => {
-      const invalidResponse = {
-        tokens: {
-          accessToken: '',
-        },
-        session: {
-          id: 'invalid-uuid',
-        },
-        user: {
-          email: 'invalid-email',
-        },
-      };
-
-      expect(isAuthenticationResponse(invalidResponse)).toBe(false);
-    });
-  });
 });
