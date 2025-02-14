@@ -25,7 +25,6 @@ export * from './common/types/filesystem/storage.types';
 
 // Response types
 export * from './common/types/requests/user.responses.types';
-export * from './common/types/requests/auth-routes.types';
 export * from './common/types/requests/folders.responses.types';
 export * from './common/types/requests/files.responses.types';
 export * from './common/types/requests/session.responses.types';
@@ -38,9 +37,8 @@ export * from './common/types/guards/index';
 
 // Auth
 export * from './common/types/auth/auth.types';
-export * from './common/types/requests/auth-routes.types';
 export * from './common/types/auth/oauth2.types';
-export * from './common/types/auth/passport.types';
+export * from './common/types/auth/responses.types';
 
 // Geolocation
 export * from './common/types/geolocation.types';

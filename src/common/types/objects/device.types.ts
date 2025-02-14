@@ -39,6 +39,7 @@ export enum Platform {
   WEB = 'web',
   DESKTOP = 'desktop',
   OTHER = 'other',
+  UNKNOWN = 'unknown',
 }
 
 export enum Browser {
@@ -48,6 +49,7 @@ export enum Browser {
   SAFARI = 'safari',
   OPERA = 'opera',
   OTHER = 'other',
+  UNKNOWN = 'unknown',
 }
 
 /**
@@ -136,4 +138,31 @@ export interface DeviceCompleteInfo {
   software: DeviceSoftwareInfo;
   /** Network-related information */
   network: DeviceNetworkInfo;
+}
+
+/**
+ * Represents the trust level of a device
+ * @enum {string}
+ */
+export enum DeviceTrustLevel {
+  /** Device is explicitly marked as untrusted */
+  UNTRUSTED = 'untrusted',
+  /** First time seeing this device */
+  NEW = 'new',
+  /** Device has been seen before */
+  RECOGNIZED = 'recognized',
+  /** Device has been blocked */
+  BLOCKED = 'BLOCKED',
+  /** Device has been revoked */
+  REVOKED = 'REVOKED',
+  /** Device has passed basic trust checks */
+  TRUSTED = 'trusted',
+  /** Device has passed advanced verification */
+  VERIFIED = 'verified',
+  /** Low risk */
+  LOW = 'LOW',
+  /** Medium risk */
+  MEDIUM = 'MEDIUM',
+  /** High risk */
+  HIGH = 'HIGH',
 }

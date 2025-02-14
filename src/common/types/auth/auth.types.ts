@@ -1,36 +1,9 @@
-import { Fingerprint } from '../objects/fingerprint.types';
-import { RiskSeverity, SecurityFlag } from '../security/security.types';
-import { Session } from '../objects/session.types';
 
-// auth.types.ts
-export interface TokenMetadata {
-  deviceId: string;
-  sessionId: string;
-  fingerprint: string;
-  issuedAt: number;
-  expiresAt: number;
-  scope: string[];
-  jti?: string;
-  iss?: string;
-  aud?: string;
-}
-
-export interface TokenValidationContext {
-  type: TokenType;
-  token: string;
-  fingerprint: Fingerprint;
-  sessionId?: string;
-  userId?: string;
-}
-
-export interface TokenValidationResult {
-  isValid: boolean;
-  payload: TokenMetadata;
-  security: {
-    riskLevel: RiskSeverity;
-    flags: SecurityFlag[];
-    requiresRotation: boolean;
-  };
+export enum VerificationMethod {
+  EMAIL = 'EMAIL',
+  SMS = 'SMS',
+  TOTP = 'TOTP',
+  WEBAUTHN = 'WEBAUTHN',
 }
 
 export enum TokenType {
@@ -58,12 +31,26 @@ export enum TokenState {
   REVOKED = 'revoked',
 }
 
-export interface TokenRotationOptions {
-  userId: string;
-  sessionId: string;
-  deviceId: string;
-  scope?: string[];
-  audience?: string[];
-  issuer?: string;
-  expiresIn?: number;
-}
+
+ export enum Permission {
+   CREATE_FOLDER = 'create_folder',
+   DELETE_FOLDER = 'delete_folder',
+   UPDATE_FOLDER = 'update_folder',
+   READ_FOLDER = 'read_folder',
+   CREATE_FILE = 'create_file',
+   DELETE_FILE = 'delete_file',
+   UPDATE_FILE = 'update_file',
+   READ_FILE = 'read_file',
+   CREATE_USER = 'create_user',
+   DELETE_USER = 'delete_user',
+   UPDATE_USER = 'update_user',
+   READ_USER = 'read_user',
+   CREATE_GROUP = 'create_group',
+   DELETE_GROUP = 'delete_group',
+   UPDATE_GROUP = 'update_group',
+   READ_GROUP = 'read_group',
+   CREATE_POLICY = 'create_policy',
+   DELETE_POLICY = 'delete_policy',
+   UPDATE_POLICY = 'update_policy',
+   READ_POLICY = 'read_policy',
+ }

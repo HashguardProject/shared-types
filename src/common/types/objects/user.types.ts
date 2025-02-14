@@ -253,9 +253,6 @@ export interface NotificationPreferences {
   /** Enable desktop notifications */
   desktop: boolean;
 
-  /** Types of email notifications to receive */
-  emailTypes: string[];
-
   /** Notification channels configuration */
   channels: {
     security?: boolean;

@@ -1,90 +1,73 @@
 import { DeviceInfo } from './device.types';
 import { RiskSeverity, SecurityFlag } from '../security/security.types';
 import { GeoLocation, VerificationMethod } from '../../..';
+import { DeviceType, Platform, DeviceTrustLevel } from './device.types';
 
-/**
- * Represents metadata about a user's session
- * @interface SessionMetadata
- */
-export interface SessionMetadata {
-  /** IP address of the session */
-  ip: string;
-  /** Operating system platform */
-  platform?: string;
-  /** Array of browser information */
-  browser?: BrowserInfo[];
-  /** Geographic location information */
-  location?: {
-    /** ISO country code */
-    country?: string;
-    /** City name */
-    city?: string;
-    /** Geographic coordinates */
-    coordinates?: {
-      /** Latitude in decimal degrees */
-      latitude: number;
-      /** Longitude in decimal degrees */
-      longitude: number;
+
+
+
+  export interface Session {
+    id: string;
+    status: SessionStatus; 
+    device: {
+      id: string;
+      type: DeviceType; 
+      platform: Platform;
+      info: {
+        userAgent: string;
+        lastKnownIp?: string;
+        location?: string;
+      };
+      trustLevel: DeviceTrustLevel;
+      firstSeen: Date;
+      lastVerified: Date;
     };
-  };
-}
+    metadata: {
+      lastActivity: Date;
+      ipAddress: string;
+      platform?: Platform;
+    };
+    expiresAt: Date;
+    verification: {
+      status: VerificationStatus; 
+      method?: VerificationMethod; 
+      lastVerified?: Date;
+      expiresAt?: Date;
+    };
+  }
 
-/**
- * Represents the security context of a session
- * @interface SessionSecurityContext
- */
-export interface SessionSecurityContext {
-  /** Unique identifier for the device */
-  deviceId: string;
-  /** Hash of the browser's fingerprint */
-  browserFingerprint: string;
-  /** Current trust level of the device */
-  trustLevel: DeviceTrustLevel;
-  /** Array of security flags associated with the session */
-  riskFlags: SecurityFlag[];
-  /** Timestamp of the last security verification */
-  lastVerification?: Date;
-  /** Method used for the last verification */
-  verificationMethod?: VerificationMethod;
-}
+  // For session listing and management in frontend
+  export interface SessionSummary {
+    id: string;
+    status: SessionStatus;
+    device: {
+      type: DeviceType;
+      platform: Platform;
+      info: {
+        userAgent: string;
+        location?: string;
+      };
+    };
+    lastActivity: Date;
+    isCurrent: boolean;
+  }
 
-/**
- * Represents the trust level of a device
- * @enum {string}
- */
-export enum DeviceTrustLevel {
-  /** Device is explicitly marked as untrusted */
-  UNTRUSTED = 'untrusted',
-  /** First time seeing this device */
-  NEW = 'new',
-  /** Device has been seen before */
-  RECOGNIZED = 'recognized',
-  /** Device has been blocked */
-  BLOCKED = 'BLOCKED',
-  /** Device has been revoked */
-  REVOKED = 'REVOKED',
-  /** Device has passed basic trust checks */
-  TRUSTED = 'trusted',
-  /** Device has passed advanced verification */
-  VERIFIED = 'verified',
-  /** Low risk */
-  LOW = 'LOW',
-  /** Medium risk */
-  MEDIUM = 'MEDIUM',
-  /** High risk */
-  HIGH = 'HIGH',
-}
+  // For session verification in frontend
+  export interface VerificationChallenge {
+    id: string;
+    type: VerificationMethod;
+    expiresAt: Date;
+  }
 
-/**
- * Represents browser brand and version information
- * @interface BrowserInfo
- */
-export interface BrowserInfo {
-  /** Browser brand name */
-  brand: string;
-  /** Browser version string */
-  version: string;
-}
+  // For session verification response
+  export interface VerificationResult {
+    success: boolean;
+    method: VerificationMethod;
+    timestamp: Date;
+  }
+
+
+
 
 export enum SessionStatus {
   ACTIVE = 'ACTIVE',
@@ -135,41 +118,4 @@ export interface DeviceContext {
   firstSeen: Date;
   lastVerified: Date;
 }
-/**
- * Represents a user session
- * @interface Session
- */
-export interface Session {
-  /** Unique session identifier */
-  id: string;
-  /** Associated user ID */
-  userId: string;
-  /** Device information */
-  device: DeviceContext;
-  /** Session risk level */
-  riskLevel: RiskSeverity;
-  /** Current session state */
-  state: SessionStatus;
-  /** When session expires */
-  expiresAt: Date;
-  /** Last activity timestamp */
-  lastActivity: Date;
-  /** Last token refresh timestamp */
-  lastTokenRefresh?: Date;
-  /** Whether session is revoked */
-  isRevoked: boolean;
-  /** When session was revoked */
-  revokedAt?: Date;
-  /** Reason for revocation */
-  revokedReason?: string;
-  /** Geographic location */
-  location?: GeoLocation;
-  /** Session verification details */
-  verification: SessionVerification;
-  /** Creation timestamp */
-  createdAt: Date;
-  /** Last update timestamp */
-  updatedAt: Date;
-  /** Security restrictions */
-  restrictions?: SecurityFlag[];
-}
+
