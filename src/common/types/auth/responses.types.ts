@@ -20,78 +20,77 @@ export interface SessionInfo {
   lastActivity: Date;
 }
 
-
 // API Response types (what gets sent to the client)
-  export interface AuthResponse {
-    user: {
-      id: string;
-      email: string;
-      isEmailVerified: boolean;
-      isNewUser: boolean;
-    };
-    session: SessionInfo;
-    security: {
-      isValid: boolean;
-      riskLevel: RiskSeverity;
-      flags: SecurityFlag[];
-      requiresVerification: boolean;
-      trustScore: number;
-    };
-    csrfToken: string;
-  }
-
-  export interface TokenRotationResponse {
-    session: {
-      id: string;
-      status: SessionStatus;
-      expiresAt: string;
-    };
-    security: {
-      isValid: boolean;
-      riskLevel: RiskSeverity;
-      flags: SecurityFlag[];
-      requiresVerification: boolean;
-      trustScore: number;
-    };
-    csrfToken: string;
-  }
-
-  export interface MagicLinkResponse {
+export interface AuthResponse {
+  user: {
+    id: string;
     email: string;
-    expiresIn: number;
+    isEmailVerified: boolean;
     isNewUser: boolean;
-    message: string;
-    deviceInfo?: {
-      recognized: boolean;
-      trustLevel: DeviceTrustLevel;
-      lastSeen: string;
-      location?: string;
-    };
-  }
+  };
+  session: SessionInfo;
+  security: {
+    isValid: boolean;
+    riskLevel: RiskSeverity;
+    flags: SecurityFlag[];
+    requiresVerification: boolean;
+    trustScore: number;
+  };
+  csrfToken: string;
+}
 
-  export interface LogoutResponse {
-    message: string;
-    sessionId: string;
+export interface TokenRotationResponse {
+  session: {
+    id: string;
+    status: SessionStatus;
+    expiresAt: string;
+  };
+  security: {
+    isValid: boolean;
+    riskLevel: RiskSeverity;
+    flags: SecurityFlag[];
+    requiresVerification: boolean;
+    trustScore: number;
+  };
+  csrfToken: string;
+}
+
+export interface MagicLinkResponse {
+  email: string;
+  expiresIn: number;
+  isNewUser: boolean;
+  message: string;
+  deviceInfo?: {
+    recognized: boolean;
+    trustLevel: DeviceTrustLevel;
+    lastSeen: string;
+    location?: string;
+  };
+}
+
+export interface LogoutResponse {
+  message: string;
+  sessionId: string;
+  timestamp: string;
+}
+
+export interface CurrentUserResponse {
+  user: {
+    id: string;
+    email: string;
+    isEmailVerified: boolean;
+    profile?: UserProfile;
+  };
+  session: {
+    id: string;
+    status: SessionStatus;
+    device: DeviceInfo;
+    expiresAt: string;
+    lastActivity: string;
+  };
+  recentActivity?: Array<{
+    type: string;
     timestamp: string;
-  }
-
-  export interface CurrentUserResponse {
-    user: {
-      id: string;
-      email: string;
-      isEmailVerified: boolean;
-      profile?: UserProfile;
-    };
-    session: {
-      id: string;
-      status: SessionStatus;
-      device: DeviceInfo;
-      expiresAt: string;
-      lastActivity: string;
-    };
-    recentActivity?: Array<{
-      type: string;
-      timestamp: string;
-      details: Record<string, any>;
-    }>;
-  }
+    details: Record<string, any>;
+  }>;
+}

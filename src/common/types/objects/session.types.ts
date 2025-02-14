@@ -3,71 +3,65 @@ import { RiskSeverity, SecurityFlag } from '../security/security.types';
 import { GeoLocation, VerificationMethod } from '../../..';
 import { DeviceType, Platform, DeviceTrustLevel } from './device.types';
 
-
-
-
-  export interface Session {
+export interface Session {
+  id: string;
+  status: SessionStatus;
+  device: {
     id: string;
-    status: SessionStatus; 
-    device: {
-      id: string;
-      type: DeviceType; 
-      platform: Platform;
-      info: {
-        userAgent: string;
-        lastKnownIp?: string;
-        location?: string;
-      };
-      trustLevel: DeviceTrustLevel;
-      firstSeen: Date;
-      lastVerified: Date;
+    type: DeviceType;
+    platform: Platform;
+    info: {
+      userAgent: string;
+      lastKnownIp?: string;
+      location?: string;
     };
-    metadata: {
-      lastActivity: Date;
-      ipAddress: string;
-      platform?: Platform;
-    };
-    expiresAt: Date;
-    verification: {
-      status: VerificationStatus; 
-      method?: VerificationMethod; 
-      lastVerified?: Date;
-      expiresAt?: Date;
-    };
-  }
-
-  // For session listing and management in frontend
-  export interface SessionSummary {
-    id: string;
-    status: SessionStatus;
-    device: {
-      type: DeviceType;
-      platform: Platform;
-      info: {
-        userAgent: string;
-        location?: string;
-      };
-    };
+    trustLevel: DeviceTrustLevel;
+    firstSeen: Date;
+    lastVerified: Date;
+  };
+  metadata: {
     lastActivity: Date;
-    isCurrent: boolean;
-  }
+    ipAddress: string;
+    platform?: Platform;
+  };
+  expiresAt: Date;
+  verification: {
+    status: VerificationStatus;
+    method?: VerificationMethod;
+    lastVerified?: Date;
+    expiresAt?: Date;
+  };
+}
 
-  // For session verification in frontend
-  export interface VerificationChallenge {
-    id: string;
-    type: VerificationMethod;
-    expiresAt: Date;
-  }
+// For session listing and management in frontend
+export interface SessionSummary {
+  id: string;
+  status: SessionStatus;
+  device: {
+    type: DeviceType;
+    platform: Platform;
+    info: {
+      userAgent: string;
+      location?: string;
+    };
+  };
+  lastActivity: Date;
+  isCurrent: boolean;
+}
 
-  // For session verification response
-  export interface VerificationResult {
-    success: boolean;
-    method: VerificationMethod;
-    timestamp: Date;
-  }
+// For session verification in frontend
+export interface VerificationChallenge {
+  id: string;
+  type: VerificationMethod;
+  expiresAt: Date;
+}
 
-
-
+// For session verification response
+export interface VerificationResult {
+  success: boolean;
+  method: VerificationMethod;
+  timestamp: Date;
+}
 
 export enum SessionStatus {
   ACTIVE = 'ACTIVE',
@@ -118,4 +112,3 @@ export interface DeviceContext {
   firstSeen: Date;
   lastVerified: Date;
 }
-
