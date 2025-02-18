@@ -4,7 +4,6 @@
  * @enum {string}
  */
 export enum RiskSeverity {
-
   UNKNOWN = 'unknown',
   /** Minimal security concern */
   LOW = 'low',

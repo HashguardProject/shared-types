@@ -16,7 +16,6 @@ export enum FolderSortField {
   CHILDREN_COUNT = 'stats.totalChildrenCount',
 }
 
-
 // Query Parameters
 export interface FolderQueryParams extends PaginationQueryParams {
   // Basic filters (aligned with FileQueryParams)
