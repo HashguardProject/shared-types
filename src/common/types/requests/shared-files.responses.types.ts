@@ -7,7 +7,6 @@ export interface SharedWith {
   status: ShareStatus;
 }
 
-
 // Request DTOs
 export interface CreateSharedFileRequest {
   protectedDataAddress: string;
