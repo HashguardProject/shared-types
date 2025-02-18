@@ -4,6 +4,8 @@
  * @enum {string}
  */
 export enum RiskSeverity {
+
+  UNKNOWN = 'unknown',
   /** Minimal security concern */
   LOW = 'low',
   /** Elevated security concern */
@@ -21,6 +23,7 @@ export enum RiskSeverity {
 
 export enum SecurityFlag {
   // Device-related flags
+  SUSPICIOUS_DEVICE = 'suspicious_device',
   NEW_DEVICE = 'new_device',
   DEVICE_SPOOFING = 'device_spoofing',
   FINGERPRINT_MISMATCH = 'fingerprint_mismatch',
@@ -81,6 +84,31 @@ export enum SecurityFlag {
   KNOWN_VPN = 'known_vpn',
   /** Connection from hosting provider */
   HOSTING_PROVIDER = 'hosting_provider',
+  SUSPICIOUS_FINGERPRINT = 'suspicious_fingerprint',
+  UNAUTHENTICATED = 'unauthenticated',
+  SESSION_NOT_FOUND = 'session_not_found',
+  DEVICE_MISMATCH = 'device_mismatch',
+  DEVICE_NOT_FOUND = 'device_not_found',
+  SECURITY_BREACH = 'security_breach',
+  LOCATION_RISK = 'location_risk',
+  LOCATION_VALIDATION_FAILED = 'location_validation_failed',
+  CSRF_VALIDATION_FAILED = 'csrf_validation_failed',
+  CSRF_TOKEN_INVALID = 'csrf_token_invalid',
+  CSRF_TOKEN_MISSING = 'csrf_token_missing',
+  CSRF_VALIDATION = 'csrf_validation',
+  INVALID_BINDING = 'invalid_binding',
+  BINDING_MISMATCH = 'binding_mismatch',
+  BINDING_EXPIRED = 'binding_expired',
+  BINDING_NOT_FOUND = 'binding_not_found',
+  BINDING_REUSED = 'binding_reused',
+  BINDING_REUSED_IN_OTHER_SESSION = 'binding_reused_in_other_session',
+  BINDING_REUSED_IN_OTHER_DEVICE = 'binding_reused_in_other_device',
+  BINDING_REUSED_IN_OTHER_LOCATION = 'binding_reused_in_other_location',
+  SESSION_BINDING_FAILED = 'session_binding_failed',
+  DEVICE_BINDING_FAILED = 'device_binding_failed',
+  TOKEN_ROTATION_FAILED = 'token_rotation_failed',
+  TOKEN_ROTATION_POLICY_VIOLATION = 'token_rotation_policy_violation',
+  TOKEN_BLACKLISTED = 'token_blacklisted',
 }
 
 /**

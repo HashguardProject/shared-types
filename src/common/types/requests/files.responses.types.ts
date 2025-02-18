@@ -56,6 +56,7 @@ export enum BatchOperationType {
   ARCHIVE = 'ARCHIVE',
   FAVORITE = 'FAVORITE',
   UNFAVORITE = 'UNFAVORITE',
+  RESTORE = 'RESTORE',
 }
 
 // Response Types
@@ -137,6 +138,7 @@ export interface UpdateFileRequest {
   tags?: string[];
   metadata?: FileMetadata;
   status?: ResourceStatus;
+  isFavorite?: boolean;
 }
 
 export interface MoveFileRequest {

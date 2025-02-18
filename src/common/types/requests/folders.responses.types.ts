@@ -5,6 +5,7 @@ import {
   PrivacyResourceStatus,
   ResourceStatus,
 } from '../filesystem/common.types';
+import { BatchOperationType } from './files.responses.types';
 
 // Enums
 export enum FolderSortField {
@@ -15,13 +16,6 @@ export enum FolderSortField {
   CHILDREN_COUNT = 'stats.totalChildrenCount',
 }
 
-export enum BulkOperationType {
-  MOVE = 'move',
-  DELETE = 'delete',
-  COPY = 'copy',
-  FAVORITE = 'favorite',
-  UNFAVORITE = 'unfavorite',
-}
 
 // Query Parameters
 export interface FolderQueryParams extends PaginationQueryParams {
@@ -89,7 +83,7 @@ export interface BulkOperationItem {
 }
 
 export interface BulkFolderOperationRequest {
-  operation: BulkOperationType;
+  operation: BatchOperationType;
   items: BulkOperationItem[];
 }
 

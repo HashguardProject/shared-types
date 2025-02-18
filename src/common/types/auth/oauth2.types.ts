@@ -13,6 +13,8 @@ export enum OAuth2ErrorCode {
   INVALID_SESSION = 'invalid_session',
   INVALID_DEVICE = 'invalid_device',
   INVALID_USER = 'invalid_user',
+  INVALID_STATE = 'invalid_state',
+ INVALID_CONTEXT = 'invalid_context'
 }
 
 export interface OAuth2Error {

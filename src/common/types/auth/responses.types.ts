@@ -74,6 +74,14 @@ export interface LogoutResponse {
   timestamp: string;
 }
 
+export interface CurrentSessionResponse {
+  id: string;
+  status: SessionStatus;
+  device: DeviceInfo;
+  expiresAt: string;
+  lastActivity: string;
+}
+
 export interface CurrentUserResponse {
   user: {
     id: string;
@@ -81,13 +89,7 @@ export interface CurrentUserResponse {
     isEmailVerified: boolean;
     profile?: UserProfile;
   };
-  session: {
-    id: string;
-    status: SessionStatus;
-    device: DeviceInfo;
-    expiresAt: string;
-    lastActivity: string;
-  };
+  session: CurrentSessionResponse;
   recentActivity?: Array<{
     type: string;
     timestamp: string;

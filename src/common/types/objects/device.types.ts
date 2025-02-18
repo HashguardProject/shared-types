@@ -122,7 +122,7 @@ export interface DeviceNetworkInfo {
 
 export interface DeviceInfo {
   id?: string;
-  trustLevel: DeviceTrustLevel;
+  trustLevel?: DeviceTrustLevel;
   platform: Platform;
   type: DeviceType;
   lastVerified: string;
