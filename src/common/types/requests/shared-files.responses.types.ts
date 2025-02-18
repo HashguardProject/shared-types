@@ -1,4 +1,4 @@
-import { ShareType, ShareStatus, SharedBy } from '../objects/shared-file.types';
+import { ShareType, ShareStatus, SharedBy, SharedFile } from '../objects/shared-file.types';
 
 export interface SharedWith {
   type: ShareType;
@@ -7,17 +7,6 @@ export interface SharedWith {
   status: ShareStatus;
 }
 
-export interface SharedFile {
-  id: string;
-  protectedDataAddress: string;
-  sharedWith: SharedWith[];
-  sharedBy: SharedBy;
-  fileId?: string;
-  fileName?: string;
-  status: ShareStatus;
-  createdAt: Date;
-  updatedAt: Date;
-}
 
 // Request DTOs
 export interface CreateSharedFileRequest {

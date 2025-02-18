@@ -28,6 +28,7 @@ export * from './common/types/requests/user.responses.types';
 export * from './common/types/requests/folders.responses.types';
 export * from './common/types/requests/files.responses.types';
 export * from './common/types/requests/session.responses.types';
+export * from './common/types/requests/shared-files.responses.types';
 
 // Common types
 export * from './common/types/common.types';
@@ -46,7 +47,7 @@ export * from './common/types/geolocation.types';
 // Response types
 export * from './common/types/response.types';
 
-// Schemas exports (if needed)
+// Schemas exports
 export * from './common/schemas/device.schema';
 export * from './common/schemas/fingerprint.schema';
 export * from './common/schemas/response.schema';
