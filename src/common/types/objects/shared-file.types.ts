@@ -1,23 +1,26 @@
 import { Schema } from '../filesystem/common.types';
 
+export type ShareType = 'address' | 'userId';
+export type ShareStatus = 'active' | 'revoked';
+
+export interface SharedBy {
+  type: ShareType;
+  address: string;
+}
+
 // Interface for adding new share
 export interface IShareWithInput {
-  type: 'address' | 'userId';
+  type: ShareType;
   addedAt: Date;
   address?: string;
-  userId?: string;
-  status: 'active' | 'revoked';
+  status: ShareStatus;
 }
 
 export interface SharedFile extends Schema {
   protectedDataAddress: string;
   sharedWith: Array<IShareWithInput>;
-  sharedBy: {
-    type: 'address' | 'userId';
-    address?: string;
-    userId?: string;
-  };
+  sharedBy: SharedBy;
   fileId?: string;
   fileName?: string;
-  status: 'active' | 'revoked';
+  status: ShareStatus;
 }

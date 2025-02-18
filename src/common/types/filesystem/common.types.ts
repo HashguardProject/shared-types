@@ -17,6 +17,6 @@ export interface PaginationQueryParams {
 
 export interface Schema {
   id: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
