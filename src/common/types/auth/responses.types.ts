@@ -21,22 +21,26 @@ export interface SessionInfo {
 }
 
 // API Response types (what gets sent to the client)
-export interface AuthResponse {
-  user: {
-    id: string;
-    email: string;
-    isEmailVerified: boolean;
-    isNewUser: boolean;
-  };
-  session: SessionInfo;
-  security: {
-    isValid: boolean;
-    riskLevel: RiskSeverity;
-    flags: SecurityFlag[];
-    requiresVerification: boolean;
-    trustScore: number;
-  };
-  csrfToken: string;
+export namespace AuthResponse {
+  export interface Base {
+    status: 'success' | 'error';
+    message: string;
+    userId?: string;
+  }
+
+  export interface Success extends Base {
+    status: 'success';
+    userId: string;
+  }
+
+  export interface Error extends Base {
+    status: 'error';
+    code: string;
+  }
+
+  export interface MagicLinkRequest extends Base {
+    status: 'success';
+  }
 }
 
 export interface TokenRotationResponse {

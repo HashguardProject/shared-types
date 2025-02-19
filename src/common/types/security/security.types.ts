@@ -45,6 +45,11 @@ export enum SecurityFlag {
   SESSION_TERMINATED = 'session_terminated',
   SESSION_REVOKED = 'session_revoked',
   SESSION_BLOCKED = 'session_blocked',
+  TOKEN_SESSION_MISMATCH = 'token_session_mismatch',
+  SESSION_VERIFIED = 'session_verified',
+  SESSION_STATE_ERROR = 'session.state.error',
+  SESSION_POLICY_VIOLATION = 'session.policy.violation',
+  
 
   // Location and Network flags
   LOCATION_CHANGE = 'location_change',
@@ -53,6 +58,7 @@ export enum SecurityFlag {
   TOR_EXIT_NODE = 'tor_exit_node',
   PROXY_DETECTED = 'proxy_detected',
   SUSPICIOUS_LOCATION = 'suspicious_location',
+  SECURITY_VIOLATION = 'security_violation',
 
   // Behavioral flags
   SUSPICIOUS_ACTIVITY = 'suspicious_activity',
