@@ -21,27 +21,26 @@ export interface SessionInfo {
 }
 
 // API Response types (what gets sent to the client)
-export namespace AuthResponse {
-  export interface Base {
+  export interface AuthResponseBase {
     status: 'success' | 'error';
     message: string;
     userId?: string;
   }
 
-  export interface Success extends Base {
+  export interface AuthResponseSuccess extends AuthResponseBase {
     status: 'success';
     userId: string;
   }
 
-  export interface Error extends Base {
+  export interface AuthResponseError extends AuthResponseBase {
     status: 'error';
     code: string;
   }
 
-  export interface MagicLinkRequest extends Base {
+  export interface AuthResponseMagicLinkRequest extends AuthResponseBase {
     status: 'success';
   }
-}
+
 
 export interface TokenRotationResponse {
   session: {
