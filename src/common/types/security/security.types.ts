@@ -49,7 +49,6 @@ export enum SecurityFlag {
   SESSION_VERIFIED = 'session_verified',
   SESSION_STATE_ERROR = 'session.state.error',
   SESSION_POLICY_VIOLATION = 'session.policy.violation',
-  
 
   // Location and Network flags
   LOCATION_CHANGE = 'location_change',
