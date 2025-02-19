@@ -30,8 +30,8 @@ export enum SecurityEventType {
   AUTH_MFA_FAILED = 'auth.mfa.failed',
   AUTH_LOGIN_ATTEMPT = 'auth.login.attempt',
 
-  SESSION_STATE_ERROR = "session.state.error",
-    SESSION_POLICY_VIOLATION = "session.policy.violation",
+  SESSION_STATE_ERROR = 'session.state.error',
+  SESSION_POLICY_VIOLATION = 'session.policy.violation',
 
   // Session Events
   SESSION_CREATED = 'session.created',
