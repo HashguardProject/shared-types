@@ -22,7 +22,7 @@ export enum RiskSeverity {
 
 export enum SecurityFlag {
   // Device-related flags
-      FINGERPRINT_COMPONENT_MISMATCH = "fingerprint_component_mismatch",
+  FINGERPRINT_COMPONENT_MISMATCH = 'fingerprint_component_mismatch',
   FINGERPRINT_SOURCE_MISMATCH = 'fingerprint_source_mismatch',
   FINGERPRINT_CROSS_VALIDATION_FAILED = 'fingerprint_cross_validation_failed',
   SUSPICIOUS_DEVICE = 'suspicious_device',
