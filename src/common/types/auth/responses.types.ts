@@ -29,7 +29,9 @@ export interface AuthResponseBase {
 
 export interface AuthResponseSuccess extends AuthResponseBase {
   status: 'success';
+  message: string;
   userId: string;
+  isNewUser: boolean;
 }
 
 export interface AuthResponseError extends AuthResponseBase {

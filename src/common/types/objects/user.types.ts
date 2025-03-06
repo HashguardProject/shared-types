@@ -5,6 +5,7 @@ import { GeoLocation } from '../geolocation.types';
 export enum UserPlan {
   FREE = 'free',
   PREMIUM = 'premium',
+  CRYPTOXR = 'cryptoXr',
   ENTERPRISE = 'enterprise',
 }
 

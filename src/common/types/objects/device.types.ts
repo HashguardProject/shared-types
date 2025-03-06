@@ -23,6 +23,7 @@ export enum OperatingSystem {
  * @enum {string}
  */
 export enum DeviceType {
+    BROWSER = "browser",  
   /** Desktop computer or laptop */
   DESKTOP = 'desktop',
   /** Mobile phone */
