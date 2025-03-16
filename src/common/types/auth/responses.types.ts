@@ -32,6 +32,10 @@ export interface AuthResponseSuccess extends AuthResponseBase {
   message: string;
   userId: string;
   isNewUser: boolean;
+  tokenInfo?: {
+    accessExpiry: number;
+    refreshExpiry: number;
+  };
 }
 
 export interface AuthResponseError extends AuthResponseBase {
