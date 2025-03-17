@@ -2,7 +2,6 @@ import { Session, SessionStatus, VerificationStatus } from '../objects/session.t
 import { GeoLocation } from '../geolocation.types';
 import { DeviceType, Platform, DeviceTrustLevel } from '../objects/device.types';
 import { RiskSeverity, SecurityFlag } from '../security/security.types';
-import { VerificationMethod } from '../auth/auth.types';
 
 export interface SessionResponse {
   id: string;
