@@ -1,5 +1,5 @@
 import { UserProfile } from '../objects/user.types';
-import { RiskSeverity, SecurityFlag } from '../security/security.types';
+import { RiskSeverity, SecurityFlag, VerificationMethod } from '../security/security.types';
 import { DeviceType, Platform, DeviceTrustLevel, DeviceInfo } from '../objects/device.types';
 import { SessionStatus } from '../objects/session.types';
 
@@ -36,6 +36,24 @@ export interface AuthResponseSuccess extends AuthResponseBase {
     accessExpiry: number;
     refreshExpiry: number;
   };
+  mfaRequired?: boolean;
+  mfaChallenge?: MfaChallengeResponse;
+}
+
+export interface MfaChallengeResponse {
+  challengeId: string;
+  requiredMethod: VerificationMethod;
+  availableMethods: VerificationMethod[];
+  expiresAt: number;
+  metadata?: {
+    phoneMasked?: string;
+    emailMasked?: string;
+  };
+}
+
+export interface AuthResponseMfaVerify extends AuthResponseSuccess {
+  verified: boolean;
+  mfaPassed: boolean;
 }
 
 export interface AuthResponseError extends AuthResponseBase {
