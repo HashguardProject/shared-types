@@ -136,16 +136,16 @@ export interface PushSubscription {
 export interface MFAPreferences {
   /** Primary verification method */
   preferredMethod: VerificationMethod;
-  
+
   /** All enabled verification methods */
   methods: VerificationMethod[];
-  
+
   /** Whether MFA is enabled */
   isEnabled: boolean;
-  
+
   /** Last MFA verification time */
   lastVerified?: Date;
-  
+
   /** Method-specific settings */
   settings?: {
     email?: { address: string };

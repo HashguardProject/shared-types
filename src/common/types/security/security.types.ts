@@ -31,7 +31,7 @@ export enum VerificationMethod {
   /** Push notification */
   PUSH = 'push',
   /** WebAuthn/FIDO2 */
-  WEBAUTHN = 'webauthn'
+  WEBAUTHN = 'webauthn',
 }
 
 /**
