@@ -1,10 +1,3 @@
-export enum VerificationMethod {
-  EMAIL = 'EMAIL',
-  SMS = 'SMS',
-  TOTP = 'TOTP',
-  WEBAUTHN = 'WEBAUTHN',
-}
-
 export enum TokenType {
   ACCESS_TOKEN = 'access_token',
   REFRESH_TOKEN = 'refresh_token',
