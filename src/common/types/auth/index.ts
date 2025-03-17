@@ -1,2 +1,2 @@
 // Export MFA types
-export * from './mfa.types'; 
+export * from './mfa.types';
