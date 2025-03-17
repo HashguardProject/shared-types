@@ -2,25 +2,25 @@ import { ResourceStatus, PrivacyResourceStatus, Schema } from './common.types';
 
 export interface IFolderStats {
   // Core counts
-  immediateChildrenCount: number;  // Files + folders directly in this folder
-  totalChildrenCount: number;      // All descendants (recursive)
-  filesCount: number;              // Direct files only
-  foldersCount: number;            // Direct folders only
-  
+  immediateChildrenCount: number; // Files + folders directly in this folder
+  totalChildrenCount: number; // All descendants (recursive)
+  filesCount: number; // Direct files only
+  foldersCount: number; // Direct folders only
+
   // Size metrics
-  totalSize: number;               // Size of all files (recursive)
-  immediateSize: number;           // Size of direct files only
-  
+  totalSize: number; // Size of all files (recursive)
+  immediateSize: number; // Size of direct files only
+
   // Timestamps
-  lastCountUpdate: Date;           // When stats were last updated
-  lastFileAdded?: Date;            // When the last file was added
-  lastFolderAdded?: Date;          // When the last folder was added
-  
+  lastCountUpdate: Date; // When stats were last updated
+  lastFileAdded?: Date; // When the last file was added
+  lastFolderAdded?: Date; // When the last folder was added
+
   // Additional metadata
-  maxDepth: number;                // Maximum folder depth
+  maxDepth: number; // Maximum folder depth
 
   // Backwards compatibility with frontend (aliases)
-  totalItems?: number;             // Alias for totalChildrenCount for legacy frontend
+  totalItems?: number; // Alias for totalChildrenCount for legacy frontend
 }
 
 export interface IFolder extends Schema {
