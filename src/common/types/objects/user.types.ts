@@ -134,13 +134,24 @@ export interface PushSubscription {
 }
 
 export interface MFAPreferences {
-  primaryMethod: VerificationMethod;
-  backupMethods: VerificationMethod[];
+  /** Primary verification method */
+  preferredMethod: VerificationMethod;
+  
+  /** All enabled verification methods */
+  methods: VerificationMethod[];
+  
+  /** Whether MFA is enabled */
   isEnabled: boolean;
+  
+  /** Last MFA verification time */
+  lastVerified?: Date;
+  
+  /** Method-specific settings */
   settings?: {
     email?: { address: string };
-    phone?: { number: string };
-    totp?: { secret: string; isConfigured: boolean };
+    phone?: { number: string; verified: boolean };
+    totp?: { verified: boolean; lastUsed?: Date };
+    backup?: { count: number; lastUsed?: Date };
   };
 }
 

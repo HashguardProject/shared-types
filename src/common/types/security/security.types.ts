@@ -16,6 +16,25 @@ export enum RiskSeverity {
 }
 
 /**
+ * Verification methods for multi-factor authentication
+ * @enum {string}
+ */
+export enum VerificationMethod {
+  /** Email verification code */
+  EMAIL = 'email',
+  /** SMS verification code */
+  SMS = 'sms',
+  /** Time-based One-Time Password (TOTP) */
+  TOTP = 'totp',
+  /** Backup codes */
+  BACKUP = 'backup',
+  /** Push notification */
+  PUSH = 'push',
+  /** WebAuthn/FIDO2 */
+  WEBAUTHN = 'webauthn'
+}
+
+/**
  * Security flags indicating specific security conditions
  * @enum {string}
  */
