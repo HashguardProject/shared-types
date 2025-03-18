@@ -22,6 +22,7 @@ export * from './common/types/filesystem/permissions.types';
 export * from './common/types/filesystem/storage.types';
 export * from './common/types/filesystem/permissions.types';
 export * from './common/types/filesystem/storage.types';
+export * from './common/types/filesystem/webdav.types';
 
 // Response types
 export * from './common/types/requests/user.responses.types';
