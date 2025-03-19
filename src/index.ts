@@ -24,6 +24,9 @@ export * from './common/types/filesystem/permissions.types';
 export * from './common/types/filesystem/storage.types';
 export * from './common/types/filesystem/webdav.types';
 
+// Billing types
+export * from './common/types/objects/billings.types';
+
 // Response types
 export * from './common/types/requests/user.responses.types';
 export * from './common/types/requests/folders.responses.types';
