@@ -1,6 +1,6 @@
-import { UserPlan } from "./user.types";
+import { UserPlan } from './user.types';
 
-import { SubscriptionStatus } from "./user.types";
+import { SubscriptionStatus } from './user.types';
 
 // Billing types
 export type BillingCycle = 'monthly' | 'yearly';
