@@ -97,7 +97,7 @@ export interface RetrievalOptions {
    * Whether to prefer the public gateway when available
    */
   preferPublicGateway?: boolean;
-  
+
   /**
    * Preferred access method (cid or path)
    * - 'cid': Prefer CID-based access (network)
@@ -105,12 +105,12 @@ export interface RetrievalOptions {
    * - 'auto': Try best available method (default)
    */
   preferredAccessMethod?: 'cid' | 'path' | 'auto';
-  
+
   /**
    * Maximum number of retries for retrieval operations
    */
   maxRetries?: number;
-  
+
   /**
    * Delay between retries in milliseconds
    */

@@ -20,7 +20,7 @@ export enum SubscriptionStatus {
   INCOMPLETE = 'incomplete',
   INCOMPLETE_EXPIRED = 'incomplete_expired',
   TRIALING = 'trialing',
-  ENDED = 'ended'
+  ENDED = 'ended',
 }
 
 // Plan storage limits in bytes
@@ -85,7 +85,7 @@ export interface User {
   plan: UserPlan;
   permissions: string[];
   activity: UserActivity;
-  
+
   // Subscription related fields
   stripeCustomerId?: string;
   stripeSubscriptionId?: string;
