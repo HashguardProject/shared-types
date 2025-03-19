@@ -33,10 +33,13 @@ export interface FileMetadataResponse {
     };
   };
   cid?: string;
+  webdavPath?: string;
+  accessMethod?: 'cid' | 'path' | 'both'; // Indicates which method is available for retrieval
   status: 'processing' | 'ready' | 'failed';
   activeDeals: number;
   totalDeals: number;
   progress: number;
+  error?: string;
 }
 
 // Upload session types
@@ -84,4 +87,32 @@ export interface CreateUploadSessionResponse {
   endpoint: string;
   token: string;
   expiresAt: Date;
+}
+
+/**
+ * Options for file retrieval operations
+ */
+export interface RetrievalOptions {
+  /**
+   * Whether to prefer the public gateway when available
+   */
+  preferPublicGateway?: boolean;
+  
+  /**
+   * Preferred access method (cid or path)
+   * - 'cid': Prefer CID-based access (network)
+   * - 'path': Prefer path-based access (WebDAV)
+   * - 'auto': Try best available method (default)
+   */
+  preferredAccessMethod?: 'cid' | 'path' | 'auto';
+  
+  /**
+   * Maximum number of retries for retrieval operations
+   */
+  maxRetries?: number;
+  
+  /**
+   * Delay between retries in milliseconds
+   */
+  retryDelay?: number;
 }

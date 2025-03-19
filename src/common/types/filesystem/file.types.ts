@@ -20,6 +20,7 @@ export interface IFile extends Schema {
   originalName: string;
   parentFolderId?: string | null; // ObjectId as string
   CID: string;
+  webdavPath?: string; // WebDAV storage path for the file
   extension: string;
   size: number;
   lastModifiedAt: Date;

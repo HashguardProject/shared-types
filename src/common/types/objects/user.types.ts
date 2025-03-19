@@ -4,10 +4,40 @@ import { GeoLocation } from '../geolocation.types';
 
 export enum UserPlan {
   FREE = 'free',
-  PREMIUM = 'premium',
-  CRYPTOXR = 'cryptoXr',
-  ENTERPRISE = 'enterprise',
+  DISCOVERY = 'discovery',  // New plan: $1.99 for 100 GB
+  STANDARD = 'standard',    // New plan: $5.99 for 500 GB
+  PREMIUM = 'premium',      // Updated plan: $14.99 for 1 TB
+  ENTERPRISE = 'enterprise', // Custom enterprise plan
 }
+
+export enum SubscriptionStatus {
+  ACTIVE = 'active',
+  PAST_DUE = 'past_due',
+  UNPAID = 'unpaid',
+  CANCELED = 'canceled',
+  INCOMPLETE = 'incomplete',
+  INCOMPLETE_EXPIRED = 'incomplete_expired',
+  TRIALING = 'trialing',
+  ENDED = 'ended'
+}
+
+// Plan storage limits in bytes
+export const PLAN_STORAGE_LIMITS = {
+  [UserPlan.FREE]: 5 * 1024 * 1024 * 1024, // 5 GB
+  [UserPlan.DISCOVERY]: 100 * 1024 * 1024 * 1024, // 100 GB
+  [UserPlan.STANDARD]: 500 * 1024 * 1024 * 1024, // 500 GB
+  [UserPlan.PREMIUM]: 1024 * 1024 * 1024 * 1024, // 1 TB
+  [UserPlan.ENTERPRISE]: 5120 * 1024 * 1024 * 1024, // 5 TB (default, customizable)
+};
+
+// Plan prices in USD per month
+export const PLAN_PRICES = {
+  [UserPlan.FREE]: 0,
+  [UserPlan.DISCOVERY]: 1.99,
+  [UserPlan.STANDARD]: 5.99,
+  [UserPlan.PREMIUM]: 14.99,
+  [UserPlan.ENTERPRISE]: 49.99, // Starting price
+};
 
 export enum UserStatus {
   ACTIVE = 'active',
@@ -53,6 +83,12 @@ export interface User {
   plan: UserPlan;
   permissions: string[];
   activity: UserActivity;
+  
+  // Subscription related fields
+  stripeCustomerId?: string;
+  stripeSubscriptionId?: string;
+  subscriptionStatus?: SubscriptionStatus;
+  subscriptionPeriodEnd?: Date;
 
   lastLogin?: Date;
   securityOverview?: UserSecurityOverview;
