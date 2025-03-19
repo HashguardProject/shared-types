@@ -47,6 +47,7 @@ export enum UserStatus {
   SUSPENDED = 'suspended',
   PENDING_VERIFICATION = 'pending_verification',
   PENDING_PAYMENT = 'pending_payment',
+  STORAGE_LIMIT_EXCEEDED = 'storage_limit_exceeded',
 }
 
 export enum ThemeType {
