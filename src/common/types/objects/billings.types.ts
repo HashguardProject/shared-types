@@ -35,6 +35,8 @@ export interface Subscription {
   canceledAt?: string;
   active: boolean;
   storageLimit: number;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface SubscriptionResponse {
@@ -75,4 +77,11 @@ export interface Invoice {
 export interface BillingHistoryResponse {
   invoices: Invoice[];
   hasMore: boolean;
+}
+
+export interface WebhookEvent {
+  stripeEventId: string;
+  type: string;
+  processedAt: string;
+  metadata?: Record<string, any>;
 }

@@ -5,7 +5,6 @@ import { GeoLocation } from '../geolocation.types';
 export enum UserPlan {
   FREE = 'free',
   CRYPTOXR = 'cryptoXr',
-
   DISCOVERY = 'discovery', // New plan: $1.99 for 100 GB
   STANDARD = 'standard', // New plan: $5.99 for 500 GB
   PREMIUM = 'premium', // Updated plan: $14.99 for 1 TB

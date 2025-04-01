@@ -1,5 +1,7 @@
 // @hashguardproject/shared-types/src/common/types/file/webdav.types.ts
 
+import { IFile } from "./file.types";
+
 export type DealState = 'active' | 'proposed' | 'failed';
 export type FileState = 'staging' | 'active' | 'failed';
 export type GroupState = 'ready_for_deals' | 'writable';
@@ -22,7 +24,9 @@ export interface FileGroup {
 export interface FileDetails {
   groups: FileGroup[];
   state: FileState;
+  size?: number;
   retrievableCopies: number;
+  [key: string]: any;
 }
 
 export interface FileMetadataResponse {
@@ -115,4 +119,112 @@ export interface RetrievalOptions {
    * Delay between retries in milliseconds
    */
   retryDelay?: number;
+}
+
+
+/**
+ * Generic progress information for file operations
+ */
+export interface ProgressInfo {
+  loaded: number;
+  total: number;
+  percent: number;
+}
+
+/**
+ * Progress information for file uploads
+ */
+export interface UploadProgress extends ProgressInfo {}
+
+/**
+ * Progress information for file downloads
+ */
+export interface DownloadProgress extends ProgressInfo {}
+
+/**
+ * Options for file metadata retrieval
+ */
+export interface GetMetadataOptions {
+  /** Include verbose details */
+  verbose?: boolean;
+  /** Wait until file is out of staging state */
+  waitForNonStaging?: boolean;
+  /** Maximum number of retries */
+  maxRetries?: number;
+  /** Delay between retries in milliseconds */
+  retryDelay?: number;
+}
+
+/**
+ * Options for file upload
+ */
+export interface UploadOptions {
+  /** Parent folder ID */
+  parentFolderId?: string;
+  /** Progress callback */
+  onProgress?: (progress: UploadProgress) => void;
+}
+
+/**
+ * Options for file download
+ */
+export interface DownloadOptions {
+  /** Progress callback */
+  onProgress?: (progress: DownloadProgress) => void;
+}
+
+/**
+ * Result of a file upload operation
+ */
+export interface UploadResult {
+  /** File ID */
+  fileId: string;
+  /** File path or Content ID */
+  filePath: string;
+}
+
+
+/**
+ * Client-side encryption/decryption operations
+ * These are different from server-side file operations (FileOperation)
+ */
+export type FileOperationType = 'encrypt' | 'decrypt';
+
+/**
+ * Output type for file processing operations
+ */
+export type OutputType = 'download' | 'preview' | 'share';
+
+/**
+ * Status of a file operation
+ */
+export type OperationStatus = 
+  | 'idle'
+  | 'getting-key'
+  | 'processing'
+  | 'completed'
+  | 'error'
+  | 'cancelled';
+
+
+
+  /**
+ * Progress update for file processing
+ */
+export interface ProgressUpdate {
+  status: string;
+  progress: number;
+}
+
+/**
+ * Configuration for file processing operations
+ */
+export interface FileOperationConfig {
+  type: FileOperationType;
+  file: File | IFile;
+  outputType?: OutputType;
+  onProgress?: (update: ProgressUpdate) => void;
+  onError?: (error: Error) => void;
+  onSuccess?: (result: ArrayBuffer) => void;
+  onCancel?: () => void;
 }
