@@ -1,6 +1,6 @@
 // @hashguardproject/shared-types/src/common/types/file/webdav.types.ts
 
-import { IFile } from "./file.types";
+import { IFile } from './file.types';
 
 export type DealState = 'active' | 'proposed' | 'failed';
 export type FileState = 'staging' | 'active' | 'failed';
@@ -121,7 +121,6 @@ export interface RetrievalOptions {
   retryDelay?: number;
 }
 
-
 /**
  * Generic progress information for file operations
  */
@@ -183,7 +182,6 @@ export interface UploadResult {
   filePath: string;
 }
 
-
 /**
  * Client-side encryption/decryption operations
  * These are different from server-side file operations (FileOperation)
@@ -198,7 +196,7 @@ export type OutputType = 'download' | 'preview' | 'share';
 /**
  * Status of a file operation
  */
-export type OperationStatus = 
+export type OperationStatus =
   | 'idle'
   | 'getting-key'
   | 'processing'
@@ -206,9 +204,7 @@ export type OperationStatus =
   | 'error'
   | 'cancelled';
 
-
-
-  /**
+/**
  * Progress update for file processing
  */
 export interface ProgressUpdate {
