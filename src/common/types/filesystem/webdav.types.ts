@@ -69,7 +69,10 @@ export type UploadStatus =
   | 'failed' // Error occurred
   | 'canceled'; // User canceled upload
 
-export interface UploadProgress {
+/**
+ * Progress information for session-based file uploads
+ */
+export interface SessionUploadProgress {
   sessionId: string;
   filename: string;
   bytesUploaded: number;
@@ -161,7 +164,7 @@ export interface UploadOptions {
   /** Parent folder ID */
   parentFolderId?: string;
   /** Progress callback */
-  onProgress?: (progress: UploadProgress) => void;
+  onProgress?: (progress: ProgressInfo) => void;
 }
 
 /**
@@ -169,7 +172,7 @@ export interface UploadOptions {
  */
 export interface DownloadOptions {
   /** Progress callback */
-  onProgress?: (progress: DownloadProgress) => void;
+  onProgress?: (progress: ProgressInfo) => void;
 }
 
 /**
@@ -213,14 +216,60 @@ export interface ProgressUpdate {
 }
 
 /**
- * Configuration for file processing operations
+ * Configuration for file encryption operations
  */
-export interface FileOperationConfig {
-  type: FileOperationType;
-  file: File | IFile;
+export interface EncryptFileConfig {
+  type: 'encrypt';
+  file: File;  // Browser File only
   outputType?: OutputType;
   onProgress?: (update: ProgressUpdate) => void;
   onError?: (error: Error) => void;
   onSuccess?: (result: ArrayBuffer) => void;
   onCancel?: () => void;
 }
+
+/**
+ * Configuration for file decryption operations
+ */
+export interface DecryptFileConfig {
+  type: 'decrypt';
+  file: IFile;  // Database IFile only
+  outputType?: OutputType;
+  onProgress?: (update: ProgressUpdate) => void;
+  onError?: (error: Error) => void;
+  onSuccess?: (result: ArrayBuffer) => void;
+  onCancel?: () => void;
+}
+
+/**
+ * Union type for file processing operations
+ */
+export type FileOperationConfig = EncryptFileConfig | DecryptFileConfig;
+
+/**
+ * State of a file operation
+ */
+export interface FileOperationState {
+  status: OperationStatus;
+  progress: number;
+  currentStep: string;
+  error?: Error;
+  onError?: (error: Error) => void;
+  result?: ArrayBuffer;
+  canRetry?: boolean;
+}
+
+/**
+ * Common properties shared between browser File and IFile
+ * This helps with writing functions that can work with either type
+ */
+export interface FileCommon {
+  name: string;
+  size: number;
+}
+
+/**
+ * Helper functions to work with either file type
+ */
+export const getFileName = (file: File | IFile): string => file.name;
+export const getFileSize = (file: File | IFile): number => file.size;
