@@ -220,7 +220,7 @@ export interface ProgressUpdate {
  */
 export interface EncryptFileConfig {
   type: 'encrypt';
-  file: File;  // Browser File only
+  file: File; // Browser File only
   outputType?: OutputType;
   onProgress?: (update: ProgressUpdate) => void;
   onError?: (error: Error) => void;
@@ -233,7 +233,7 @@ export interface EncryptFileConfig {
  */
 export interface DecryptFileConfig {
   type: 'decrypt';
-  file: IFile;  // Database IFile only
+  file: IFile; // Database IFile only
   outputType?: OutputType;
   onProgress?: (update: ProgressUpdate) => void;
   onError?: (error: Error) => void;
