@@ -16,6 +16,7 @@ export interface IFileMetadata {
 }
 
 export interface IFile extends Schema {
+  id: string;
   name: string;
   originalName: string;
   parentFolderId?: string | null; // ObjectId as string

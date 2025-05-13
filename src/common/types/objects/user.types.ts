@@ -24,7 +24,7 @@ export enum SubscriptionStatus {
 
 // Plan storage limits in bytes
 export const PLAN_STORAGE_LIMITS = {
-  [UserPlan.FREE]: 5 * 1024 * 1024 * 1024, // 5 GB
+  [UserPlan.FREE]: 2 * 1024 * 1024 * 1024, // 2 GB
   [UserPlan.DISCOVERY]: 100 * 1024 * 1024 * 1024, // 100 GB
   [UserPlan.STANDARD]: 500 * 1024 * 1024 * 1024, // 500 GB
   [UserPlan.PREMIUM]: 1024 * 1024 * 1024 * 1024, // 1 TB
@@ -35,8 +35,8 @@ export const PLAN_STORAGE_LIMITS = {
 export const PLAN_PRICES = {
   [UserPlan.FREE]: 0,
   [UserPlan.DISCOVERY]: 1.99,
-  [UserPlan.STANDARD]: 5.99,
-  [UserPlan.PREMIUM]: 14.99,
+  [UserPlan.STANDARD]: 4.99,
+  [UserPlan.PREMIUM]: 9.99,
   [UserPlan.ENTERPRISE]: 49.99, // Starting price
 };
 
