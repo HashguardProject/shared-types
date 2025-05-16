@@ -31,7 +31,7 @@ export const PLAN_STORAGE_LIMITS = {
   [UserPlan.ENTERPRISE]: 5120 * 1024 * 1024 * 1024, // 5 TB (default, customizable)
 };
 
-// Plan prices in USD per month
+// Plan prices in EUR per month
 export const PLAN_PRICES = {
   [UserPlan.FREE]: 0,
   [UserPlan.DISCOVERY]: 1.99,

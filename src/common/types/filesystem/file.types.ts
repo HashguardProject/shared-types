@@ -13,6 +13,10 @@ export interface IFileMetadata {
   thumbnail?: string;
   encoding?: string;
   customProperties: Record<string, unknown>;
+  encryptionMetadata?: {
+    strategy: string;
+    identifiers: string[];
+  };
 }
 
 export interface IFile extends Schema {
