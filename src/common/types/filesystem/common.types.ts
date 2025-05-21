@@ -2,6 +2,7 @@ export enum ResourceStatus {
   ACTIVE = 'active',
   ARCHIVED = 'archived',
   TRASHED = 'trashed',
+  PENDING = 'pending',
 }
 
 export enum PrivacyResourceStatus {
