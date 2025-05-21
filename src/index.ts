@@ -1,20 +1,20 @@
 // Auth types
-export * from './common/types/auth/auth.types'
-export * from './common/types/auth/session.types'
-export * from './common/types/auth/mfa.types'
-export * from './common/types/auth/responses.types'
+export * from './common/types/auth/auth.types';
+export * from './common/types/auth/session.types';
+export * from './common/types/auth/mfa.types';
+export * from './common/types/auth/responses.types';
 
 // Security types
-export * from './common/types/security/security.types'
+export * from './common/types/security/security.types';
 
 // Object types
-export * from './common/types/objects/session.types'
-export * from './common/types/objects/user.types'
-export * from './common/types/objects/device.types'
+export * from './common/types/objects/session.types';
+export * from './common/types/objects/user.types';
+export * from './common/types/objects/device.types';
 
 // Request/Response types
-export * from './common/types/requests/session.responses.types'
-export * from './common/types/requests/user.responses.types'
+export * from './common/types/requests/session.responses.types';
+export * from './common/types/requests/user.responses.types';
 
 //Object types
 export * from './common/types/objects/fingerprint.types';
