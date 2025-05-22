@@ -80,6 +80,16 @@ export interface ExtendedUploadOptions extends WebdavUploadOptions {
   maxRetries?: number;
 
   /**
+   * Base delay in milliseconds between retries (for exponential backoff)
+   */
+  retryDelay?: number;
+
+  /**
+   * Maximum delay in milliseconds between retries
+   */
+  maxRetryDelay?: number;
+
+  /**
    * Whether to use the pre-registration API
    */
   usePreRegistration?: boolean;
@@ -92,6 +102,16 @@ export interface ExtendedUploadOptions extends WebdavUploadOptions {
      * Additional metadata for the file
      */
     metadata?: Record<string, any>;
+
+    /**
+     * Maximum number of pre-registration retry attempts
+     */
+    maxRetries?: number;
+
+    /**
+     * Base delay in milliseconds between pre-registration retries
+     */
+    retryDelay?: number;
   };
 }
 
