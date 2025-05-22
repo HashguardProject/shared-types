@@ -10,7 +10,17 @@ import {
 // Re-export existing types with new names to avoid conflicts
 export type CreateUploadSessionRequest = WebdavCreateUploadSessionRequest;
 export type CreateUploadSessionResponse = WebdavCreateUploadSessionResponse;
-export type ProgressInfo = WebdavProgressInfo;
+
+/**
+ * Generic progress information for file operations
+ */
+export interface ProgressInfo extends WebdavProgressInfo {
+  fileName?: string;
+  fileId?: string;
+  speed?: number;
+  remainingTime?: number;
+}
+
 export type UploadOptions = WebdavUploadOptions;
 export type UploadResult = WebdavUploadResult;
 
@@ -128,4 +138,4 @@ export interface ExtendedUploadResult extends WebdavUploadResult {
    * The session ID used for the upload
    */
   sessionId?: string;
-}
+} 
