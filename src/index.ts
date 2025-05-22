@@ -5,7 +5,6 @@ export * from './common/types/auth/mfa.types';
 export * from './common/types/auth/responses.types';
 export * from './common/types/auth/oauth2.types';
 
-
 // Security types
 export * from './common/types/security/security.types';
 
