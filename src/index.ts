@@ -56,6 +56,7 @@ export {
   FileOperationConfig,
   FileOperationState,
   FileCommon,
+  GetMetadataOptions,
   getFileName,
   getFileSize,
   // Export DownloadOptions and needed but non-conflicting types
