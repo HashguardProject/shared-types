@@ -38,6 +38,7 @@ export interface AuthResponseSuccess extends AuthResponseBase {
   };
   mfaRequired?: boolean;
   mfaChallenge?: MfaChallengeResponse;
+  csrfToken?: string;
 }
 
 export interface MfaChallengeResponse {

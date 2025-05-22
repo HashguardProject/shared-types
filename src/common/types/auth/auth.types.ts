@@ -45,3 +45,28 @@ export enum Permission {
   UPDATE_POLICY = 'update_policy',
   READ_POLICY = 'read_policy',
 }
+
+export interface TokenPayload {
+  sub: string; // subject (user ID)
+  email?: string;
+  type: TokenType;
+  exp?: number; // expiration time
+  iat?: number; // issued at
+  jti?: string; // JWT ID
+  iss?: string; // issuer
+  aud?: string; // audience
+  scope?: string | string[];
+  deviceId?: string;
+  sessionId?: string;
+}
+
+export interface PreAuthTokenPayload {
+  sub: string; // user ID
+  email: string;
+  challengeId: string;
+  requiresMfa: boolean;
+  exp?: number; // expiration time
+  iat?: number; // issued at
+  jti?: string; // JWT ID
+  scope: 'mfa_verification';
+}
