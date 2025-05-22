@@ -1,20 +1,20 @@
 // Auth types
-export * from './common/types/auth/auth.types';
-export * from './common/types/auth/session.types';
-export * from './common/types/auth/mfa.types';
-export * from './common/types/auth/responses.types';
+export * from './common/types/auth/auth.types'
+export * from './common/types/auth/session.types'
+export * from './common/types/auth/mfa.types'
+export * from './common/types/auth/responses.types'
 
 // Security types
-export * from './common/types/security/security.types';
+export * from './common/types/security/security.types'
 
 // Object types
-export * from './common/types/objects/session.types';
-export * from './common/types/objects/user.types';
-export * from './common/types/objects/device.types';
+export * from './common/types/objects/session.types'
+export * from './common/types/objects/user.types'
+export * from './common/types/objects/device.types'
 
 // Request/Response types
-export * from './common/types/requests/session.responses.types';
-export * from './common/types/requests/user.responses.types';
+export * from './common/types/requests/session.responses.types'
+export * from './common/types/requests/user.responses.types'
 
 //Object types
 export * from './common/types/objects/fingerprint.types';
@@ -33,7 +33,48 @@ export * from './common/types/filesystem/file.types';
 export * from './common/types/filesystem/folder.types';
 export * from './common/types/filesystem/permissions.types';
 export * from './common/types/filesystem/storage.types';
-export * from './common/types/filesystem/webdav.types';
+
+// WebDAV types (excluding the ones that overlap with upload types)
+export {
+  DealState,
+  FileState,
+  GroupState,
+  Deal,
+  FileGroup,
+  FileDetails,
+  FileMetadataResponse,
+  UploadSession,
+  UploadStatus,
+  SessionUploadProgress,
+  RetrievalOptions,
+  FileOperationType,
+  OutputType,
+  OperationStatus,
+  ProgressUpdate,
+  EncryptFileConfig,
+  DecryptFileConfig,
+  FileOperationConfig,
+  FileOperationState,
+  FileCommon,
+  getFileName,
+  getFileSize,
+  // Export DownloadOptions and needed but non-conflicting types
+  DownloadOptions,
+  DownloadProgress
+} from './common/types/filesystem/webdav.types';
+
+// Upload types - explicitly include all needed types
+export {
+  CreateUploadSessionRequest,
+  CreateUploadSessionResponse,
+  ProgressInfo,
+  UploadOptions,
+  UploadResult,
+  PreRegisterFileDto,
+  PreRegistrationResponse,
+  ExtendedUploadOptions,
+  ExtendedUploadResult,
+} from './common/types/uploads/upload.types';
 
 // Billing types
 export * from './common/types/objects/billings.types';
