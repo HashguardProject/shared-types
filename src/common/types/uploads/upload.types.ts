@@ -138,4 +138,4 @@ export interface ExtendedUploadResult extends WebdavUploadResult {
    * The session ID used for the upload
    */
   sessionId?: string;
-} 
+}

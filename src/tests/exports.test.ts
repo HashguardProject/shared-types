@@ -5,7 +5,7 @@ import {
   PreRegisterFileDto,
   PreRegistrationResponse,
   ExtendedUploadOptions,
-  ProgressInfo
+  ProgressInfo,
 } from '../index';
 
 // Simple test to verify ResourceStatus enum includes PENDING
@@ -28,7 +28,7 @@ const uploadOptionsTest = () => {
     },
     maxRetries: 3,
     retryDelay: 1000,
-    usePreRegistration: true
+    usePreRegistration: true,
   };
   return options;
 };
@@ -39,7 +39,7 @@ const preRegisterDtoTest = () => {
     name: 'test.txt',
     size: 1024,
     mimeType: 'text/plain',
-    parentFolderId: 'folder123'
+    parentFolderId: 'folder123',
   };
   return dto;
 };
@@ -49,15 +49,10 @@ const preRegistrationResponseTest = () => {
   const response: PreRegistrationResponse = {
     fileId: 'file123',
     sessionId: 'session456',
-    expiresAt: new Date()
+    expiresAt: new Date(),
   };
   return response;
 };
 
 // Export the tests for verification
-export {
-  resourceStatusTest,
-  uploadOptionsTest,
-  preRegisterDtoTest,
-  preRegistrationResponseTest
-}; 
+export { resourceStatusTest, uploadOptionsTest, preRegisterDtoTest, preRegistrationResponseTest };
