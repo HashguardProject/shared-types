@@ -225,6 +225,7 @@ export interface ProgressUpdate {
 export interface EncryptFileConfig {
   type: 'encrypt';
   file: File; // Browser File only
+  encryptionId?: string;
   outputType?: OutputType;
   onProgress?: (update: ProgressUpdate) => void;
   onError?: (error: Error) => void;

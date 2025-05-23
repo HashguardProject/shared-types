@@ -1,3 +1,4 @@
+import { FileContentCategory } from '../requests/files.responses.types';
 import { PrivacyResourceStatus, ResourceStatus, Schema } from './common.types';
 
 export interface IVersion {
@@ -43,6 +44,8 @@ export interface IFile extends Schema {
   version: number;
   previousVersions: IVersion[];
   metadata: IFileMetadata;
+  createdBy: string;
+  category: FileContentCategory;  
 }
 
 export enum FileOperation {
