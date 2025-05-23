@@ -45,7 +45,7 @@ export interface IFile extends Schema {
   previousVersions: IVersion[];
   metadata: IFileMetadata;
   createdBy: string;
-  category: FileContentCategory;  
+  category: FileContentCategory;
 }
 
 export enum FileOperation {
