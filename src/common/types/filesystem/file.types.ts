@@ -26,6 +26,7 @@ export interface IFile extends Schema {
   parentFolderId?: string | null; // ObjectId as string
   CID: string;
   webdavPath?: string; // WebDAV storage path for the file
+  encryptionId?: string; // Added for deterministic encryption key generation
   extension: string;
   size: number;
   lastModifiedAt: Date;

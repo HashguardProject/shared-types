@@ -183,6 +183,10 @@ export interface UploadResult {
   fileId: string;
   /** File path or Content ID */
   filePath: string;
+  /** Content ID (CID) of the file, if available */
+  CID?: string;
+  /** Encryption ID for client-side encryption key derivation */
+  encryptionId?: string;
 }
 
 /**

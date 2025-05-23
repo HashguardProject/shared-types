@@ -65,6 +65,11 @@ export interface PreRegistrationResponse {
   sessionId: string;
 
   /**
+   * The encryption ID for client-side encryption key derivation
+   */
+  encryptionId?: string;
+
+  /**
    * The expiration time of the pre-registration
    */
   expiresAt: Date;
