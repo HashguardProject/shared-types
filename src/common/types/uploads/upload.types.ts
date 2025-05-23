@@ -105,12 +105,23 @@ export interface ExtendedUploadOptions extends WebdavUploadOptions {
   maxRetryDelay?: number;
 
   /**
-   * Whether to use the pre-registration API
+   * Whether to use the pre-registration API. 
+   * If set to false, fileId and sessionId might be expected to be provided directly.
    */
   usePreRegistration?: boolean;
 
   /**
-   * Options for the pre-registration API
+   * Optional File ID to use if usePreRegistration is false.
+   */
+  fileId?: string;
+
+  /**
+   * Optional Session ID to use if usePreRegistration is false.
+   */
+  sessionId?: string;
+
+  /**
+   * Options for the pre-registration API (if usePreRegistration is true)
    */
   preRegistrationOptions?: {
     /**
