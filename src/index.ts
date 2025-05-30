@@ -45,7 +45,6 @@ export {
   FileDetails,
   FileMetadataResponse,
   UploadSession,
-  UploadStatus,
   SessionUploadProgress,
   RetrievalOptions,
   FileOperationType,
@@ -76,6 +75,13 @@ export {
   PreRegistrationResponse,
   ExtendedUploadOptions,
   ExtendedUploadResult,
+  // Server-side upload types
+  InternalUploadType,
+  StorageHealthCheckResult,
+  UploadEventData,
+  UploadMulterFile,
+  UploadStatus,
+  UploadProgress
 } from './common/types/uploads/upload.types';
 
 // Billing types

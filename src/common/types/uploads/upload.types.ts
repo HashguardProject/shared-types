@@ -55,7 +55,10 @@ export interface PreRegisterFileDto {
  */
 export interface PreRegistrationResponse {
   /**
-   * The ID of the pre-registered file
+   * The ID of the pre-registered file with PENDING status
+   * This is a real file ID that will be updated when the upload completes
+   * Note: This may be the same as the sessionId during pre-registration
+   * until a permanent file is created in the system
    */
   fileId: string;
 
@@ -154,4 +157,80 @@ export interface ExtendedUploadResult extends WebdavUploadResult {
    * The session ID used for the upload
    */
   sessionId?: string;
+}
+
+/**
+ * Upload type for internal tracking
+ */
+export interface InternalUploadType {
+  id: string;
+  type: string;
+}
+
+/**
+ * Result of a storage health check
+ */
+export interface StorageHealthCheckResult {
+  isConnected: boolean;
+  outboundIp: string | null;
+  lastChecked: Date | null;
+  storageUrl: string;
+  isIpWhitelisted: boolean | null;
+  error: string | null;
+  connectionDiagnostics?: any;
+}
+
+/**
+ * Data for upload events
+ */
+export interface UploadEventData {
+  sessionId: string;
+  fileId?: string;
+  filename: string;
+  status: string;
+  error?: string;
+}
+
+/**
+ * Upload status types
+ */
+export type UploadStatus =
+  | 'created'
+  | 'uploading'
+  | 'processing'
+  | 'storing'
+  | 'complete'
+  | 'failed'
+  | 'canceled';
+
+/**
+ * Progress information for upload tracking
+ */
+export interface UploadProgress {
+  sessionId: string;
+  filename: string;
+  bytesUploaded: number;
+  bytesTotal: number;
+  percent: number;
+  status: UploadStatus;
+  error?: string;
+}
+
+/**
+ * Extended Multer file with additional properties
+ * This interface extends Express.Multer.File for server-side use
+ */
+export interface UploadMulterFile {
+  fieldname: string;
+  originalname: string;
+  encoding: string;
+  mimetype: string;
+  size: number;
+  destination?: string;
+  filename?: string;
+  path?: string;
+  buffer?: Buffer;
+  stream?: any;
+  originalPath?: string;
+  encryptionId?: string;
 }
