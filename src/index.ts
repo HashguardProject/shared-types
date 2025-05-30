@@ -81,8 +81,35 @@ export {
   UploadEventData,
   UploadMulterFile,
   UploadStatus,
-  UploadProgress
+  UploadProgress,
 } from './common/types/uploads/upload.types';
+
+// File content and request types
+export {
+  FileContentCategory,
+  CreateFileRequest,
+  UpdateFileRequest,
+  MoveFileRequest,
+  BatchFileOperationRequest,
+  RestoreVersionRequest,
+  FileQueryParams,
+  FileSortField,
+} from './common/types/requests/files.responses.types';
+
+// Explicitly re-export ResourceStatus and PrivacyResourceStatus to avoid confusion
+export {
+  ResourceStatus,
+  PrivacyResourceStatus,
+  Schema,
+} from './common/types/filesystem/common.types';
+
+// Export IFile explicitly to avoid confusion with different file interfaces
+export {
+  IFile,
+  IFileMetadata,
+  IVersion,
+  FileOperation,
+} from './common/types/filesystem/file.types';
 
 // Billing types
 export * from './common/types/objects/billings.types';
