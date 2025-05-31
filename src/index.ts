@@ -64,52 +64,8 @@ export {
   DownloadProgress,
 } from './common/types/filesystem/webdav.types';
 
-// Upload types - explicitly include all needed types
-export {
-  CreateUploadSessionRequest,
-  CreateUploadSessionResponse,
-  ProgressInfo,
-  UploadOptions,
-  UploadResult,
-  PreRegisterFileDto,
-  PreRegistrationResponse,
-  ExtendedUploadOptions,
-  ExtendedUploadResult,
-  // Server-side upload types
-  InternalUploadType,
-  StorageHealthCheckResult,
-  UploadEventData,
-  UploadMulterFile,
-  UploadStatus,
-  UploadProgress,
-} from './common/types/uploads/upload.types';
-
-// File content and request types
-export {
-  FileContentCategory,
-  CreateFileRequest,
-  UpdateFileRequest,
-  MoveFileRequest,
-  BatchFileOperationRequest,
-  RestoreVersionRequest,
-  FileQueryParams,
-  FileSortField,
-} from './common/types/requests/files.responses.types';
-
-// Explicitly re-export ResourceStatus and PrivacyResourceStatus to avoid confusion
-export {
-  ResourceStatus,
-  PrivacyResourceStatus,
-  Schema,
-} from './common/types/filesystem/common.types';
-
-// Export IFile explicitly to avoid confusion with different file interfaces
-export {
-  IFile,
-  IFileMetadata,
-  IVersion,
-  FileOperation,
-} from './common/types/filesystem/file.types';
+// Upload types - use wildcard export to ensure all types are included
+export * from './common/types/uploads/upload.types';
 
 // Billing types
 export * from './common/types/objects/billings.types';
